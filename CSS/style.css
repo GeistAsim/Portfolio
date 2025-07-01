@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Fira Code", "Poppins";
+}
+
+:root {
+    --bg-color: #020618;
+    --font-color: #ffffff;
+    --hero-color: #0F172B;
+    --border: #314158;
+
+    /* colors */
+    --purple: #615FFF;
+    --green: #00D5BE;
+    --red: #FFA1AD;
+    --comment: #90A1B9;
+}
+
+.body {
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-color);
+    position: relative;
+}
+
+
+.hero {
+    width: 95%;
+    height: 90%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: var(--hero-color);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    position: relative;
+}
+
+
+/* header section */
+nav {
+    width: calc(100% - 1px);
+    height: 69px;
+    background-color: var(--hero-color);
+    border-bottom: 1px solid var(--border);
+    border-radius: 9px 9px 0 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo {
+    width: 250px;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-left: 15px;
+    /* padding: 15px; */
+    border-right: 1px solid var(--border);
+    color: var(--comment);
+    font-size: 22px;
+}
+
+.logo:hover{
+    color: var(--font-color);
+}
+
+.nav-right{
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.r-left{
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.r-left div:hover{
+    color: var(--font-color);
+}
+
+.hello{
+    width: 163px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    color: var(--comment);
+    border-right: 1px solid var(--border);
+    cursor: pointer;
+}
+
+.r-right{
+    width: 50%;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.r-right div:hover{
+    color: var(--font-color);
+}
+
+.contact{
+    width: 163px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    color: var(--comment);
+    border-left: 1px solid var(--border);
+    cursor: pointer;
+}
+
+/* intro Section */
+
+.me {
+    font-size: 18px;
+    font-weight: normal;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    overflow: hidden;
+    color: var(--font-color);
+}
+
+.me>:nth-child(2) {
+    font-size: 80px;
+    font-weight: bold;
+    color: var(--font-color);
+}
+
+.Intro {
+    color: var(--comment);
+}
+
+.role {
+    color: var(--purple);
+    font-size: 32px;
+    padding-bottom: 52px;
+}
+
+.github>:nth-child(1) {
+    color: var(--green);
+}
+
+.github>:nth-child(2) {
+    color: var(--red);
+}
+
+.github a {
+    color: var(--purple);
+}
