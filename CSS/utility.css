@@ -10,3 +10,19 @@ img {
 .flex {
     display: flex;
 }
+
+.border-1 {
+    position: absolute;
+    height: 100%;
+    border-right: 1px solid var(--border);
+    top: 0;
+    right: 0;
+}
+
+.border-2 {
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    bottom: 0;
+    right: 0;
+}

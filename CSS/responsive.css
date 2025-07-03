@@ -1,0 +1,12 @@
+@media (min-width: 1948px){
+    body{
+        background-color: #020618;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .body{
+            width: 1948px;
+    }
+}

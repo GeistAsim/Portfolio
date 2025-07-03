@@ -63,10 +63,11 @@ nav {
     justify-content: flex-start;
     gap: 10px;
     margin-left: 15px;
-    border-right: 1px solid var(--border);
+    /* border-right: 1px solid var(--border); */
     color: var(--comment);
     font-size: 22px;
     cursor: pointer;
+    position: relative;
 }
 
 .logo:hover {
@@ -134,28 +135,7 @@ nav {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-}
-
-
-/* Slide bar  */
-
-.slide {
-    width: calc(40% + 25px);
-    height: 100%;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: #615FFF;
-}
-
-.folder {
-    background-color: #00D5BE;
-    width: 63px;
-    height: 100%;
-    align-items: center;
-    justify-content: flex-start;
-    flex-direction: column;
-    gap: 17px;
-    padding-top: 122px;
+    padding-top: 54.8px;
 }
 
 /* intro Section */
@@ -166,15 +146,15 @@ nav {
     font-size: 18px;
     font-weight: normal;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     gap: 12px;
     overflow: hidden;
     color: var(--font-color);
-    padding-left: 15%;
+    /* padding-left: 15%; */
 }
 
-.me>:nth-child(2) {
+.name {
     font-size: 80px;
     font-weight: bold;
     color: var(--font-color);
@@ -200,4 +180,52 @@ nav {
 
 .github a {
     color: var(--purple);
+}
+
+/* about section */
+
+/* Side bar  */
+
+.side {
+    width: calc(31.6% + 25px);
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+    position: relative;
+}
+
+.folder {
+    width: 63px;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 17px;
+    border-right: 1px solid var(--border);
+}
+
+.folder .personal {
+    padding-top: 18px;
+}
+
+.file {
+    width: 100%;
+    height: 100%;
+}
+
+.about{
+    width: 100%;
+    height: 40px;
+    position: relative;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.about-1{
+    color: var(--font-color);
+    padding: 12px 10px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
 }
