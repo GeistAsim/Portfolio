@@ -93,7 +93,7 @@ nav {
 }
 
 .hello {
-    width: 163px;
+    width: fit-content;
     height: 100%;
     display: flex;
     align-items: center;
@@ -102,6 +102,10 @@ nav {
     color: var(--comment);
     border-right: 1px solid var(--border);
     cursor: pointer;
+}
+
+.hello>div{
+    padding: 0 21px;
 }
 
 .r-right {
@@ -113,7 +117,7 @@ nav {
 }
 
 .contact {
-    width: 163px;
+    width: fit-content;
     height: 100%;
     display: flex;
     align-items: center;
@@ -122,9 +126,10 @@ nav {
     color: var(--comment);
     border-left: 1px solid var(--border);
     cursor: pointer;
+    padding: 0 20px;
 }
 
-.r-right .contact:hover {
+.r-right .contact:hover, .contact a:hover {
     color: var(--green);
 }
 
@@ -278,7 +283,7 @@ nav {
     word-break: break-word;
 }
 
-.mail{
+.mail {
     align-items: center;
     justify-content: flex-start;
     gap: 11px;
@@ -296,4 +301,37 @@ nav {
     gap: 8px;
     margin-left: 2.5%;
     word-break: break-all;
+}
+
+/* footer section */
+
+footer {
+    width: calc(100% - 1px);
+    height: 53px;
+    background-color: var(--hero-color);
+    border-top: 1px solid var(--border);
+    border-radius: 9px 9px 0 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.foot-right {
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+}
+
+.foot-1 {
+        max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 21px;
+    height: 100%;
 }
