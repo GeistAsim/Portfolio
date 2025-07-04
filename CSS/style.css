@@ -89,7 +89,7 @@ nav {
 }
 
 .r-left div:hover {
-    color: var(--font-color);
+    color: var(--green);
 }
 
 .hello {
@@ -125,7 +125,7 @@ nav {
 }
 
 .r-right .contact:hover {
-    color: var(--font-color);
+    color: var(--green);
 }
 
 /* Container */
@@ -146,12 +146,15 @@ nav {
     font-size: 18px;
     font-weight: normal;
     flex-direction: column;
+    overflow: hidden;
+    color: var(--comment);
+    /* padding-left: 15%; */
+}
+
+.me-home {
     align-items: center;
     justify-content: center;
     gap: 12px;
-    overflow: hidden;
-    color: var(--font-color);
-    /* padding-left: 15%; */
 }
 
 .name {
@@ -214,7 +217,17 @@ nav {
     height: 100%;
 }
 
-.about{
+.file-side {
+    width: 100%;
+    height: fit-content;
+    position: relative;
+}
+
+.about-side {
+    position: relative;
+}
+
+.about {
     width: 100%;
     height: 40px;
     position: relative;
@@ -222,10 +235,65 @@ nav {
     justify-content: flex-start;
 }
 
-.about-1{
+.about-1 {
+    max-width: 100%;
     color: var(--font-color);
-    padding: 12px 10px;
+    padding-left: 10px;
     align-items: center;
     justify-content: flex-start;
     gap: 8px;
+    cursor: pointer;
+}
+
+.edu {
+    padding: 8px 0;
+}
+
+.edu-1 {
+    width: 100%;
+    height: fit-content;
+    color: var(--comment);
+    font-size: 16px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.edu-1:hover {
+    color: var(--green);
+}
+
+.me-about {
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+.see p {
+    padding-left: 5%;
+    padding-right: 2.5%;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+.mail{
+    align-items: center;
+    justify-content: flex-start;
+    gap: 11px;
+    flex-direction: column;
+    padding: 11px 4px 0 0;
+}
+
+.mail-1 {
+    width: 100%;
+    height: fit-content;
+    color: var(--comment);
+    font-size: 13px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    margin-left: 2.5%;
+    word-break: break-all;
 }
