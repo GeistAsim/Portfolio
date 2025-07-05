@@ -21,6 +21,10 @@
     .box{
         width: 48%;
     }
+
+    .form-box{
+        width: 80%;
+    }
 }
 
 @media (max-width: 860px){
@@ -44,5 +48,8 @@
 
     .tile .last{
         padding: 0 7px;
+    }
+    .form-box{
+        width: 95%;
     }
 }

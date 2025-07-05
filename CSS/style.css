@@ -5,6 +5,9 @@
     padding: 0;
     font-family: "Fira Code", "Poppins";
     box-sizing: border-box;
+    ::placeholder{
+        color: var(--comment);
+    }
 }
 
 :root {
@@ -165,6 +168,12 @@ nav {
     gap: 12px;
 }
 
+.see-1 {
+    max-width: fit-content;
+    max-height: 100%;
+    margin: auto;
+}
+
 .name {
     font-size: 80px;
     font-weight: bold;
@@ -198,7 +207,7 @@ nav {
 /* Side bar  */
 
 .side {
-    width: calc(31.8% + 25px);
+    width: calc(31.5% + 25px);
     height: 100%;
     align-items: center;
     justify-content: flex-start;
@@ -281,7 +290,11 @@ nav {
     gap: 12px;
 }
 
-.see p {
+.bio{
+    padding: 10px 14px;
+}
+
+.bio p {
     padding-left: 5%;
     padding-right: 2.5%;
     word-wrap: break-word;
@@ -387,6 +400,7 @@ footer {
     align-items: center;
     justify-content: center;
     font-size: 14px;
+    padding-left: 14px;
 }
 
 .heading :first-child {
@@ -439,4 +453,55 @@ footer {
     color: var(--font-color);
     background-color: var(--border);
     cursor: pointer;
+}
+
+/* contact section and form */
+
+.form {
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    overflow: auto;
+}
+
+
+.form-box {
+    width: 50%;
+    max-height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+
+.frm-ele {
+    width: 100%;
+    height: 100%;
+    gap: 8px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+}
+
+.person-1 {
+    width: 100%;
+    background-color: var(--bg-color);
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    color: var(--font-color);
+    font-size: 16px;
+    padding: 12px 12px;
+}
+
+.message {
+    max-width: 100%;
+    min-width: 100%;
+    height: 200px;
+    resize: none;
 }
