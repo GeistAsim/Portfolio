@@ -10,3 +10,39 @@
             width: 1948px;
     }
 }
+
+@media (max-width: 1300px){
+    .box{
+        width: 49%;
+    }
+}
+
+@media (max-width: 980px){
+    .box{
+        width: 48%;
+    }
+}
+
+@media (max-width: 860px){
+    .box{
+        width: 48%;
+    }
+}
+
+
+@media (max-width: 752px){
+    .box{
+        width: 100%;
+    }
+}
+
+
+@media (max-width: 460px){
+    .box{
+       padding: 0;
+    }
+
+    .tile .last{
+        padding: 0 7px;
+    }
+}
