@@ -32,6 +32,7 @@
     justify-content: center;
     background-color: var(--bg-color);
     position: relative;
+    overflow: hidden;
 }
 
 
@@ -51,15 +52,21 @@
 /* header section */
 nav {
     width: calc(100% - 1px);
-    height: 53px;
+    min-height: 58px;
+    /* max-height: 58px; */
     background-color: var(--hero-color);
     border-bottom: 1px solid var(--border);
     border-radius: 9px 9px 0 0;
-    position: absolute;
-    left: 0;
-    top: 0;
     align-items: center;
     justify-content: flex-start;
+}
+
+.nav-bx {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .logo {
@@ -80,26 +87,56 @@ nav {
     color: var(--font-color);
 }
 
+
+.menu {
+    display: none;
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+    position: static;
+    padding: 6px;
+}
+
+.cls {
+    display: none;
+    max-width: 100%;
+    max-height: 100%;
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+}
+
 .nav-right {
     width: 100%;
     height: 100%;
+    display: flex;
     align-items: center;
     justify-content: space-between;
+    transition: all 0.2s ease;
+}
+
+.logo-box {
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-logo {
+    display: none;
+    margin: 0;
 }
 
 .r-left {
-    width: 50%;
+    width: 100%;
     height: 100%;
     align-items: center;
     justify-content: flex-start;
 }
 
-.r-left div:hover {
-    color: var(--green);
-}
-
 .hello {
-    width: fit-content;
+    width: max-content;
     height: 100%;
     display: flex;
     align-items: center;
@@ -110,34 +147,14 @@ nav {
     cursor: pointer;
 }
 
+.hello:hover {
+    color: var(--green);
+    border-bottom: 1px solid var(--green);
+}
+
+
 .hello>div {
     padding: 0 21px;
-}
-
-.r-right {
-    width: 50%;
-    height: 100%;
-    align-items: center;
-    justify-content: flex-end;
-    color: #00D5BE;
-}
-
-.contact {
-    width: fit-content;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 17px;
-    color: var(--comment);
-    border-left: 1px solid var(--border);
-    cursor: pointer;
-    padding: 0 20px;
-}
-
-.r-right .contact:hover,
-.contact a:hover {
-    color: var(--green);
 }
 
 /* Container */
@@ -147,7 +164,7 @@ nav {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    padding: 54.8px 0;
+    padding-bottom: 54.8px;
 }
 
 /* intro Section */
@@ -168,12 +185,20 @@ nav {
     gap: 12px;
 }
 
+.see {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    word-break: break-word;
+}
+
 .see-0 {
+    height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    padding: 0 12px;
 }
 
 .see-1 {
@@ -267,7 +292,7 @@ nav {
     align-items: center;
     justify-content: flex-start;
     gap: 8px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 .edu {
@@ -336,12 +361,13 @@ footer {
     height: 53px;
     background-color: var(--hero-color);
     border-top: 1px solid var(--border);
-    border-radius: 9px 9px 0 0;
+    border-radius: 0 0 9px 9px;
     position: absolute;
     left: 0;
     bottom: 0;
     align-items: center;
     justify-content: flex-start;
+    overflow: hidden;
 }
 
 .foot-right {
@@ -351,6 +377,33 @@ footer {
     justify-content: space-between;
     position: absolute;
     left: 0;
+}
+
+.r-right {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    color: #00D5BE;
+}
+
+.contact {
+    width: fit-content;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    color: var(--comment);
+    border-left: 1px solid var(--border);
+    cursor: pointer;
+    padding: 0 20px;
+}
+
+.r-right .contact:hover,
+.contact a:hover {
+    color: var(--green);
 }
 
 .foot-1 {
@@ -397,7 +450,7 @@ footer {
     color: var(--comment);
     overflow: hidden;
     padding: 0 15px;
-    transition: all 2s ease;
+    transition: all 0.5s ease;
 }
 
 .box:hover {
@@ -412,7 +465,7 @@ footer {
 }
 
 .heading :first-child {
-    color: var(--purple);
+    color: var(--green);
 }
 
 .tile {

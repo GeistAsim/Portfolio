@@ -122,10 +122,3 @@ img {
     width: 18px;
     height: 18px;
 }
-
-.see {
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    word-break: break-all;
-}
