@@ -1,3 +1,4 @@
+// container box data
 let change = document.querySelector(".container")
 const templates = {
     0: `<div class="me me-home flex">
@@ -28,48 +29,50 @@ const templates = {
 
     1: `<div class="side flex">
                     <div class="file">
-                        <div class="about-side">
+                        <div class="about-side pDrop">
                             <div class="about flex">
                                 <div class="about-1 flex">
-                                    <img src="images/svg/down_arrow.svg" alt="" class="direct">
+                                    <img src="images/svg/right_arrow.svg" alt="" class="direct">
                                     <div>Personal-info</div>
                                 </div>
                                 <div class="border-2"></div>
                             </div>
-                            <div class="edu">
-                                <div class="edu-1 flex">
-                                    <img src="images/svg/right_arrow.svg" alt="" class="direct">
-                                    <img src="images/svg/folder_icon_1.svg" alt="" class="direct">
-                                    <span>bio</span>
-                                </div>
-                                <div class="edu-1 flex">
-                                    <img src="images/svg/right_arrow.svg" alt="" class="direct">
-                                    <img src="images/svg/folder_icon_2.svg" alt="" class="direct">
-                                    <span>interests</span>
-                                </div>
-                                <div class="edu-1 flex">
-                                    <img src="images/svg/right_arrow.svg" alt="" class="direct">
-                                    <img src="images/svg/folder_icon_3.svg" alt="" class="direct">
-                                    <span>education</span>
-                                </div>
-                            </div>
                             <div class="border-2"></div>
+                            <div class="edu down">
+                                    <div class="edu-1 flex">
+                                        <img src="images/svg/right_arrow.svg" alt="" class="direct">
+                                        <img src="images/svg/folder_icon_1.svg" alt="" class="direct">
+                                        <span>bio</span>
+                                    </div>
+                                    <div class="edu-1 flex">
+                                        <img src="images/svg/right_arrow.svg" alt="" class="direct">
+                                        <img src="images/svg/folder_icon_2.svg" alt="" class="direct">
+                                        <span>interests</span>
+                                    </div>
+                                    <div class="edu-1 flex">
+                                        <img src="images/svg/right_arrow.svg" alt="" class="direct">
+                                        <img src="images/svg/folder_icon_3.svg" alt="" class="direct">
+                                        <span>education</span>
+                                    </div>
+                                </div>
                         </div>
-                        <div class="about flex">
-                            <div class="about-1 flex">
-                                <img src="images/svg/down_arrow.svg" alt="" class="direct">
-                                <div>Contacts</div>
+                        <div class="about-side conDrop">
+                            <div class="about flex">
+                                <div class="about-1 flex">
+                                    <img src="images/svg/right_arrow.svg" alt="" class="direct">
+                                    <div>Contacts</div>
+                                </div>
+                                <div class="border-2"></div>
                             </div>
-                            <div class="border-2"></div>
-                        </div>
-                        <div class="mail flex">
-                            <div class="mail-1 flex">
-                                <img src="images/svg/mail.svg" alt="E-Mail" class="direct">
-                                <span>asimsaifioffical12@gmail.com</span>
-                            </div>
-                            <div class="mail-1 flex">
-                                <img src="images/svg/phone.svg" alt="E-Mail" class="direct">
-                                <span>+91 9024714087</span>
+                            <div class="mail down">
+                                <div class="mail-1 flex">
+                                    <img src="images/svg/mail.svg" alt="E-Mail" class="direct">
+                                    <span>asimsaifioffical12@gmail.com</span>
+                                </div>
+                                <div class="mail-1 flex">
+                                    <img src="images/svg/phone.svg" alt="E-Mail" class="direct">
+                                    <span>+91 9024714087</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -97,15 +100,15 @@ const templates = {
 
     2: `<div class="side flex">
                     <div class="file">
-                        <div class="about-side">
+                        <div class="about-side projtDrop">
                             <div class="about flex">
                                 <div class="about-1 flex">
-                                    <img src="images/svg/down_arrow.svg" alt="" class="direct">
+                                    <img src="images/svg/right_arrow.svg" alt="" class="direct">
                                     <div>projects</div>
                                 </div>
                                 <div class="border-2"></div>
                             </div>
-                            <div class="edu">
+                            <div class="edu projects">
                                 <div class="lang-name flex">
                                     <label class="custom-checkbox">
                                         <input type="checkbox" name="Language" id="tickbox" class="tickbox">
@@ -160,9 +163,11 @@ const templates = {
                             </div>
                             <div class="last flex">
                                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, quibusdam?</p>
-                                <button class="btn">
-                                    view-project
-                                </button>
+                                <a class = "prjt-btn" href="https://github.com/asimsaifioffical/EchoJunction-#" target="_blank">
+                                    <button class="btn">
+                                        view-project
+                                    </button>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -170,21 +175,23 @@ const templates = {
 
     3: `<div class="side flex">
                     <div class="file">
-                        <div class="about flex">
-                            <div class="about-1 flex">
-                                <img src="images/svg/down_arrow.svg" alt="" class="direct">
-                                <div>Contacts</div>
+                        <div class="about-side conDrop">
+                            <div class="about flex">
+                                <div class="about-1 flex">
+                                    <img src="images/svg/right_arrow.svg" alt="" class="direct">
+                                    <div>Contacts</div>
+                                </div>
+                                <div class="border-2"></div>
                             </div>
-                            <div class="border-2"></div>
-                        </div>
-                        <div class="mail flex">
-                            <div class="mail-1 flex">
-                                <img src="images/svg/mail.svg" alt="E-Mail" class="direct">
-                                <span>asimsaifioffical12@gmail.com</span>
-                            </div>
-                            <div class="mail-1 flex">
-                                <img src="images/svg/phone.svg" alt="E-Mail" class="direct">
-                                <span>+91 9024714087</span>
+                            <div class="mail down">
+                                <div class="mail-1 flex">
+                                    <img src="images/svg/mail.svg" alt="E-Mail" class="direct">
+                                    <span>asimsaifioffical12@gmail.com</span>
+                                </div>
+                                <div class="mail-1 flex">
+                                    <img src="images/svg/phone.svg" alt="E-Mail" class="direct">
+                                    <span>+91 9024714087</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -215,6 +222,66 @@ const templates = {
                         </form>
                     </div>
                 </div>`  //contact    
+}
+
+
+// initialize drop down menu for about
+function initDropdowns() {
+
+    // for personal bio section
+    let bioDrops = document.querySelectorAll(".pDrop")
+    bioDrops.children
+
+    bioDrops.forEach(drop => {
+        drop.addEventListener("click", () => {
+            let sDown = drop.parentElement.querySelectorAll(".edu")
+            console.log(sDown)
+
+            Array.from(sDown).forEach((shw, i) => {
+                shw = sDown[i]
+                shw.style.display = (shw.style.display === "flex") ? "none" : "flex";
+                console.log(shw);
+            })
+        })
+    })
+
+    // for all contact section
+    let conDrops = document.querySelectorAll(".conDrop")
+    conDrops.children
+
+    conDrops.forEach(drop => {
+        drop.addEventListener("click", () => {
+            chngtodown()
+            let mDown = drop.parentElement.querySelectorAll(".mail")
+            console.log(mDown);
+
+            Array.from(mDown).forEach((shw, i) => {
+                shw = mDown[i]
+                shw.style.display = (shw.style.display === "flex") ? "none" : "flex";
+                console.log(shw);
+            });
+
+        })
+    })
+
+    // for projects sections
+    let projtDrops = document.querySelectorAll(".projtDrop")
+    projtDrops.children
+    console.log(projtDrops);
+
+    projtDrops.forEach(drop => {
+        drop.addEventListener("click", () => {
+            let prDown = drop.parentElement.querySelectorAll(".projects")
+            console.log(prDown);
+
+            Array.from(prDown).forEach((shw, i) => {
+                shw = prDown[i]
+                shw.style.display = (shw.style.display === "flex") ? "none" : "flex";
+                console.log(shw);
+
+            })
+        })
+    })
 }
 
 function main() {
@@ -268,6 +335,8 @@ function main() {
 
             item.style.color = "#FFA1AD"
             item.style.borderBottom = "1px solid #FFA1AD"
+
+            initDropdowns()
         })
     })
 

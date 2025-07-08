@@ -10,6 +10,7 @@
     --red: #FFA1AD;
     --comment: #90A1B9;
     --svg: #62748e;
+    --line: #314158;
 }
 
 
@@ -31,7 +32,7 @@
         width: 49%;
     }
 
-    .find{
+    .find {
         padding: 0 12px;
     }
 }
@@ -58,7 +59,7 @@
 
     .cls {
         display: flex;
-        top: 14px;
+        top: 12px;
     }
 
     .nav-right {
@@ -75,12 +76,13 @@
         bottom: 1px;
         background-color: var(--bg-color);
         z-index: 1;
+        border-left: 1px solid var(--border);
         border-radius: 0 9px 9px 0;
         overflow-y: auto;
     }
 
     .r-left div:hover {
-        color: var(--font-color);
+        color: var(--green);
     }
 
     .menu-1 {
@@ -90,12 +92,24 @@
         justify-content: flex-start;
         gap: 8px;
         word-wrap: break-word;
+        position: absolute;
+        left: 0;
+        top: 47px;
+    }
+
+    #hello {
+        border-top: 1px solid var(--border);
+    }
+
+    .hello {
+        padding: 10px;
+        border-bottom: 1px solid var(--border);
+        border-right: none;
     }
 
     .menu-2 {
         width: 100%;
         justify-content: flex-end;
-        border: none;
         gap: 8px;
     }
 
@@ -105,6 +119,12 @@
 
     .box {
         width: 48%;
+    }
+
+    .fxwd,
+    .find {
+        padding: 6px;
+        border-right: 1px solid var(--border);
     }
 
 }
@@ -135,7 +155,7 @@
         max-height: 50%;
     }
 
-    .role{
+    .role {
         padding-bottom: 112px;
     }
 
@@ -156,6 +176,27 @@
         width: 66px;
         height: 52px;
     }
+
+    .foot-1 {
+        padding: 0;
+    }
+
+    .border-1,
+    .border-2 {
+        display: none;
+    }
+
+    /* about section */
+    .aboutRspsv {
+        flex-direction: column;
+        /* overflow-y: auto; */
+    }
+
+    .side {
+        width: 100%;
+        height: fit-content;
+        margin-bottom: 12px;
+    }
 }
 
 @media (max-width: 460px) {
@@ -169,7 +210,7 @@
     }
 
     .tile .last {
-        padding: 0 7px;
+        padding: 0 12px;
     }
 
     .form-box {
@@ -196,6 +237,16 @@
         /* position: relative; */
     }
 
+    #hello {
+        border-top: none;
+    }
+
+    .menu-1 {
+        position: absolute;
+        left: 0;
+        top: 63px;
+    }
+
     footer {
         height: 22px;
     }
@@ -214,6 +265,14 @@
     }
 
     .border-3 {
+        width: 100%;
+        border-bottom: 1px solid var(--border);
+        position: absolute;
+        top: 63px;
+        left: 0;
+    }
+
+    .border-4 {
         width: 100%;
         border-bottom: 1px solid var(--border);
         position: absolute;

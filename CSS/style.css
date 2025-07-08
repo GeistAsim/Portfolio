@@ -23,6 +23,7 @@
     --red: #FFA1AD;
     --comment: #90A1B9;
     --svg: #62748e;
+     --line: #314158;
 }
 
 .body {
@@ -83,6 +84,12 @@ nav {
     position: relative;
 }
 
+.logo-click {
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
 .logo:hover {
     color: var(--font-color);
 }
@@ -104,6 +111,7 @@ nav {
     cursor: pointer;
     position: absolute;
     top: 20px;
+    right: 14px;
 }
 
 .nav-right {
@@ -136,6 +144,7 @@ nav {
 }
 
 .hello {
+    position: relative;
     width: max-content;
     height: 100%;
     display: flex;
@@ -145,13 +154,21 @@ nav {
     color: var(--comment);
     border-right: 1px solid var(--border);
     cursor: pointer;
+    transition: all 1s ease;
+}
+
+.hello div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .hello:hover {
     color: var(--green);
-    border-bottom: 1px solid var(--green);
+    scale: 0.95;
 }
-
 
 .hello>div {
     padding: 0 21px;
@@ -165,6 +182,7 @@ nav {
     justify-content: center;
     overflow: hidden;
     padding-bottom: 54.8px;
+    position: relative;
 }
 
 /* intro Section */
@@ -265,6 +283,15 @@ nav {
 .file {
     width: 100%;
     height: 100%;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.file .border-2 {
+    display: none;
 }
 
 .file-side {
@@ -283,6 +310,12 @@ nav {
     position: relative;
     align-items: center;
     justify-content: flex-start;
+    background-color: var(--line);
+    cursor: pointer;
+}
+
+.about:hover{
+    background-color: var(--comment);
 }
 
 .about-1 {
@@ -296,6 +329,10 @@ nav {
 }
 
 .edu {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     color: var(--comment);
     font-size: 16px;
     padding: 8px 0;
@@ -335,11 +372,12 @@ nav {
 }
 
 .mail {
-    align-items: center;
-    justify-content: flex-start;
-    gap: 11px;
+    display: none;
     flex-direction: column;
-    padding: 11px 4px 0 0;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 11px;
+    padding: 11px 4px 11px 0;
 }
 
 .mail-1 {
@@ -465,7 +503,7 @@ footer {
 }
 
 .heading :first-child {
-    color: var(--green);
+    color: var(--red);
 }
 
 .tile {
@@ -505,14 +543,20 @@ footer {
     word-wrap: break-word;
 }
 
+.prjt-btn{
+    width: 100%;
+    max-height: 100%;
+}
+
 .btn {
+    width: 100%;
     padding: 7px 10px;
     border: none;
     border-radius: 6px;
     font-size: 14px;
     font-weight: 400;
-    color: var(--font-color);
     background-color: var(--border);
+    color: var(--font-color);
     cursor: pointer;
 }
 
