@@ -19,7 +19,9 @@ async function loadpages(i) {
 
         const container = document.querySelector(".container");
         container.replaceChildren(template.content.cloneNode(true));
+
         initDropdowns()
+        fileDropdowns()
     } catch (err) {
         console.error("Failed to load page:", err)
     }
@@ -46,6 +48,28 @@ function initDropdowns() {
     }
 }
 
+// function for opening files in personal-info section
+function fileDropdowns() {
+    setupDropdownFiles(".pFdrop", ".my-info")
+    setupDropdownFiles(".iFdrop", ".my-interest")
+    setupDropdownFiles(".eFdrop", ".my-edu")
+
+    function setupDropdownFiles(triggerParent, triggerClass) {
+        let selects = document.querySelectorAll(triggerParent)
+        console.log(selects);
+
+        selects.forEach(select => {
+            select.addEventListener("click", () => {
+                let files = select.parentElement.querySelectorAll(triggerClass)
+                files.forEach(item => {
+                    item.style.display = (item.style.display === "flex") ? "none" : "flex";
+                })
+            })
+        })
+    }
+}
+
+// main function
 function main() {
 
     // humburger activating click

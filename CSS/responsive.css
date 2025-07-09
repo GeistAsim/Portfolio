@@ -42,7 +42,8 @@
 
     .hero {
         width: 94%;
-        height: 96%;
+        height: calc(96% - 50px);
+        margin-bottom: 28px;
     }
 
     .logo {
@@ -148,6 +149,10 @@
 
     .box {
         width: 100%;
+    }
+
+    .file{
+        border: none;
     }
 
     .hello img {

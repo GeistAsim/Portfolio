@@ -23,7 +23,7 @@
     --red: #FFA1AD;
     --comment: #90A1B9;
     --svg: #62748e;
-     --line: #314158;
+    --line: #314158;
 }
 
 .body {
@@ -98,7 +98,7 @@ nav {
 .menu {
     display: none;
     max-width: 100%;
-    max-height: 100%;
+    height: 100%;
     cursor: pointer;
     position: static;
     padding: 6px;
@@ -288,6 +288,8 @@ nav {
     height: 100%;
     flex-direction: column;
     gap: 4px;
+    border-right: 1px solid var(--border);
+    overflow: auto;
 }
 
 .file .border-2 {
@@ -314,7 +316,7 @@ nav {
     cursor: pointer;
 }
 
-.about:hover{
+.about:hover {
     background-color: var(--comment);
 }
 
@@ -338,8 +340,12 @@ nav {
     padding: 8px 0;
 }
 
+.edu>div {
+    width: 100%;
+}
+
 .edu-1 {
-    max-width: 100%;
+    width: 100%;
     height: fit-content;
     color: var(--comment);
     font-size: 16px;
@@ -350,8 +356,28 @@ nav {
     cursor: pointer;
 }
 
-.edu-1:hover {
+.edu-2 {
+    width: 100%;
+    height: fit-content;
+    color: var(--comment);
+    font-size: 16px;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 5px 10px;
+    margin-left: 8%;
+    cursor: pointer;
+}
+
+.edu-1:hover,
+.edu-2:hover {
     color: var(--green);
+}
+
+.my-info,
+.my-interest,
+.my-edu {
+    display: none;
 }
 
 .me-about {
@@ -451,6 +477,11 @@ footer {
     gap: 8px;
     padding: 0 21px;
     height: 100%;
+    transition: all 2s ease;
+}
+
+.foot-1:hover {
+    scale: 0.9;
 }
 
 
@@ -543,7 +574,7 @@ footer {
     word-wrap: break-word;
 }
 
-.prjt-btn{
+.prjt-btn {
     width: 100%;
     max-height: 100%;
 }
