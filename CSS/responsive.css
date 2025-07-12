@@ -40,10 +40,13 @@
 /* max-width: 980px */
 @media (max-width: 1070px) {
 
+    .body{
+        height: calc(100vh - 55px);
+    }
+
     .hero {
         width: 94%;
-        height: calc(96% - 50px);
-        margin-bottom: 28px;
+        height: 96%;
     }
 
     .logo {
@@ -210,8 +213,8 @@
         padding-bottom: 23px;
     }
 
-    .box {
-        padding: 0;
+    .post{
+        padding: 4px;
     }
 
     .tile .last {
