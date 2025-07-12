@@ -64,6 +64,12 @@ async function paraloading(i) {
         const paraEle = document.querySelector(".onFile")
         paraEle.textContent = aboutpage.trim()
 
+        let selectfile = document.querySelectorAll(".edu-2")
+        Array.from(selectfile).forEach(c => {
+            c.style.color = ""
+        });
+        selectfile[i].style.color = "#FFA1AD"
+
     } catch (err) {
         console.error("Failed to load about para:", err)
     }
@@ -83,6 +89,7 @@ function activateEdu2Clicks() {
             for (let key in fileMap) {
                 if (item.classList.contains(key)) {
                     paraloading(fileMap[key]);
+                    // console.log(item);
                     break;
                 }
             }
