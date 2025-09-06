@@ -23,7 +23,6 @@ frontend_path = os.path.join(base_dir, "..", "frontend")
 
 # checking if path exist or not
 if os.path.exists(frontend_path):
-    print(f"Frontend folder obtain on path: {frontend_path}")
     app.mount("/static", StaticFiles(directory=frontend_path), name="frontend")
 else:
     raise ValueError ("Frontend folder missing")

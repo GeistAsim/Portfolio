@@ -226,7 +226,7 @@ nav {
 }
 
 .see-1 {
-    max-width: fit-content;
+    max-width: 50%;
     height: fit-content;
     margin: auto;
 }

@@ -117,6 +117,10 @@
         gap: 8px;
     }
 
+    .see-1{
+        max-width: 65%;
+    }
+
     .form-box {
         width: 80%;
     }
@@ -144,6 +148,10 @@
 
     .contact {
         border: none;
+    }
+
+    .see-1{
+        max-width: 75%;
     }
 }
 
@@ -205,6 +213,10 @@
         height: fit-content;
         margin-bottom: 12px;
     }
+
+    .see-1{
+        max-width: 95%;
+    }
 }
 
 @media (max-width: 460px) {
@@ -253,6 +265,15 @@
         position: absolute;
         left: 0;
         top: 63px;
+    }
+
+    .name{
+        font-size: 58px;
+        padding: 19px 0;
+    }
+
+    .role{
+        font-size: 25px;
     }
 
     footer {

@@ -1,11 +1,15 @@
+import { loadHomepage } from "./api_connect.js";
+
+loadHomepage()
+
 // load html page function
 async function loadpages(i, push = true) {
 
     const urls = [
-        "pages/home.html",
-        "pages/about.html",
-        "pages/project.html",
-        "pages/contact.html",
+        "home.html",
+        "about.html",
+        "project.html",
+        "contact.html",
     ]
 
     try {
