@@ -3,15 +3,16 @@ const api = `http://127.0.0.1:8000/api/`
 
 
 // fetch links
-export async function loadLinks(item) {
+async function loadLinks(title) {
     try {
         // load links
         let res = await fetch(`${api}links`);
         if (!res) throw new Error("Failed to fetch links")
 
         const links_data = await res.json();
-        let data = links_data[0][item];
-        return data
+
+        let found = links_data.find(link => link.title === title)
+        return found ? found.url : null;
 
     } catch (error) {
         console.error("Error loading links: ", error);
@@ -21,7 +22,7 @@ export async function loadLinks(item) {
 
 
 // fetch home data
-export async function loadHomeData() {
+async function loadHomeData() {
     try {
         // connect with home
         let res = await fetch(`${api}home`);
@@ -43,7 +44,7 @@ export async function loadHomeData() {
         role.textContent = home_data.role;
 
         let github_link = document.querySelectorAll(".github_link");
-        let git = await loadLinks("github_link");
+        let git = await loadLinks("GitHub");
 
         github_link.forEach((g) => {
             // Add github link on all github entry point
@@ -66,21 +67,44 @@ export async function loadHomeData() {
     }
 }
 
-loadHomeData()
-
 
 // getting about section data
-async function loadAboutData() {
-    // connect with about
-    let res = await fetch(`${my_api}about`);
-    if (!res.ok) throw new Error ("Fail to load about data")
-    
-    let about = await res.json();
+async function loadAboutData(title) {
+    try {    
+        // connect with about
+        let res = await fetch(`${api}about`);
+        if (!res.ok) throw new Error("Fail to load about data");
 
-    // getting object
-    let about_data = about[0]
-    
-    // Distructuring the about data
-    // const 
+        let about_data = await res.json();
 
+        let found = about_data.find(about => about.title === title);
+        return found ? found.desc : null;
+        
+    }
+    catch (error) {
+        console.error("Failed to load about data: ", error);
+        return null;
+    }
+}
+
+
+// Load Projects
+// async function loadProjects(title) {
+    
+// }
+
+
+// main function
+export async function server(page, key=null){
+    if (page === "home") {
+        return await loadHomeData();
+    }
+
+    else if (page === "about" && key) {
+        return await loadAboutData(key);
+    }
+
+    else if (page === "projects" && key) {
+        return await loadProjects(key);
+    }
 }

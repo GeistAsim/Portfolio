@@ -3,11 +3,16 @@ waste.html
 
 # VS code Folder
 .vscode/
+trash/
+
+# JS
+tempCodeRunnerFile.js
 
 # Python cache
 __pycache__/
 *.py[cod]
 *$py.class
+tempCodeRunnerFile.py
 
 # Virtual environments
 .venv/

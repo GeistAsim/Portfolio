@@ -19,15 +19,11 @@ def home_Entitys(items) -> list:
 def link_Entity(item):
     return {
         "id": str(item["_id"]),
-        "github_link": item["github_link"],
-        "email": item["email"],
-        "insta_id": item["insta_id"],
-        "linked_in": item["linked_in"],
-        "upwork": item["upwork"],
-        "fiverr": item["fiverr"]
+        "title": item["title"],
+        "url": item["url"]
     }
 
-def link_Entitys(items):
+def link_Entitys(items) -> list:
     return [link_Entity(item) for item in items]
 
 
@@ -36,5 +32,10 @@ def link_Entitys(items):
 # -------------------------------
 def about_Entity(item):
     return{
-        "id": str(item["_id"])
+        "id": str(item["_id"]),
+        "title": item["title"],
+        "desc": item["desc"]
     }
+
+def about_Entitys(items) -> list:
+    return [about_Entity(item) for item in items]
