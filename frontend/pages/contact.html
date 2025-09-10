@@ -14,33 +14,33 @@
                 <img src="images/svg/mail.svg" alt="E-Mail" class="direct">
                 <span>asimsaifioffical12@gmail.com</span>
             </div>
-            <!-- <div class="mail-1 flex">
-                <img src="images/svg/phone.svg" alt="E-Mail" class="direct">
-                <span>+91 9024714087</span>
-            </div> -->
         </div>
     </div>
     <div class="border-1">
     </div>
 </div>
 <div class="me me-about flex">
-    <div class="see">
-        <form action="" class="form flex">
+    <div class="see formsee">
+        <form class="form flex" id="contactform">
             <div class="form-box flex">
                 <div class="frm-ele flex">
                     <label for="name" class="lbl">_name:</label>
-                    <input type="text" name="name" class="person-1" autocomplete="off" required>
+                    <input id="clname" type="text" name="name" class="person-1" autocomplete="off" placeholder="Your name..." required>
                 </div>
                 <div class="frm-ele flex">
                     <label for="name" class="lbl">_email:</label>
-                    <input type="email" name="name" class="person-1" autocomplete="off" required>
+                    <input id="clemail" type="email" name="name" class="person-1" autocomplete="off"  placeholder="your@email.com" required>
+                </div>
+                <div class="frm-ele flex">
+                    <label for="name" class="lbl">_subject:</label>
+                    <input id="clsubject" type="text" name="name" class="person-1" autocomplete="off" placeholder="Subject...">
                 </div>
                 <div class="frm-ele flex">
                     <label for="name" class="lbl">_message</label>
-                    <textarea type="text" name="name" class="person-1 message" placeholder="Your message here..."
+                    <textarea id="clmessage" type="text" name="name" class="person-1 message" placeholder="Your message here..."
                         required></textarea>
                 </div>
-                <button class="btn" id="submit-msg">
+                <button type="submit" class="btn formsubmit" id="submitform submit-msg">
                     Submit-Message
                 </button>
             </div>

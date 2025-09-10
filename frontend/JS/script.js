@@ -36,6 +36,14 @@ async function loadpages(i, push = true) {
             paraloading(0);
         }
 
+        else if (i === 2) {
+            await displayProject()
+        }
+
+        else if (i === 3) {
+            await sendFormData()
+        }
+
         // Pushing history only when needed
         if (push) {
             history.pushState({ index: i }, "", `#page${i}`)
@@ -45,6 +53,95 @@ async function loadpages(i, push = true) {
 
     } catch (err) {
         console.error("Failed to load page:", err)
+    }
+
+}
+
+
+// send form data
+async function sendFormData() {
+    let form = document.querySelector("#contactform");
+    console.log(form);
+    form.addEventListener("submit", async (s) => {
+        s.preventDefault();
+
+        // collect form data
+        const formdata = {
+            name: document.getElementById("clname").value,
+            email: document.getElementById("clemail").value,
+            subject: document.getElementById("clsubject").value,
+            message: document.getElementById("clmessage").value
+        }
+
+        let response = await server("contact", formdata)
+
+        if (response && response.status === "success") {
+            alert("Message sent successfuly")
+            form.reset();
+        }
+        else {
+            alert("XX Message failed")
+        }
+        console.log("clicked");
+    })
+}
+
+
+// project display
+async function displayProject() {
+    try {
+        // get the projects detail
+        let projectData = await server("projects");
+
+        // get all the projects name
+        let posts = projectData.map(item => item.project)
+
+        // get target
+        let postbox = document.getElementById("projectbox");
+
+        if (!postbox) {
+            console.error("No element with id projectbox");
+            return;
+        }
+
+        for (let p of posts) {
+            let posts_data = projectData.find(item => item.project === p);
+
+            let projectHTML = `
+                                <div class="box flex">
+                        <div class="head flex">
+                            <div class="heading">
+                                <span>Project </span>
+                                <span id="postno"></span>
+                                <span class="spnHead">// </span>
+                                <span class="spnHead" id="postname">${posts_data.project}</span>
+                            </div>
+                        </div>
+                        <div class="tile flex">
+                            <div class="mid">
+                                <a class="projectlink" href="${posts_data.link}" target="_blank">
+                                    <img src="${posts_data.imglink}" alt="${posts_data.project}">
+                                </a>
+                            </div>
+                            <div class="last flex hovertile">
+                                <p id="postdesc">${posts_data.project_desc}</p>
+                                <a class="prjt-btn projectlink" href="${posts_data.link}" target="_blank">
+                                    <button class="btn hoverbtn">
+                                        view-project
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>`
+
+
+            // insert new projects
+            postbox.insertAdjacentHTML("beforeend", projectHTML)
+        }
+    }
+    catch (error) {
+        console.error("filed to load projects", error);
+        return null;
     }
 
 }
@@ -61,13 +158,13 @@ async function paraloading(i) {
         // map index to about page key
         const aboutMap = ["Bio", "Interest", "Education"];
         let key = aboutMap[i]
-        
+
         // fetch content from the server
         let content = await server("about", key);
-        
+
         // find target data
         let aboutBox = document.querySelector(".onFile");
-        
+
         if (aboutBox) {
             aboutBox.textContent = content || "no data found";
         }
@@ -196,7 +293,6 @@ function updateNavHighlight(i) {
 function main() {
 
     let elements = document.querySelector(".r-left")
-    console.log(elements);
 
     let itemEle = elements.children
 
@@ -237,7 +333,6 @@ function main() {
             loadpages(i)
         })
     })
-
 }
 
 main()

@@ -16,7 +16,7 @@ if ENV == "Development":
     # env_file = os.path.abspath(f"backend/env/.env.{ENV}")   # for only run this file
     # env_file = os.path.abspath(f"env/.env.{ENV}")
 
-    print("Loading env file from: ", env_file)
+    print("Loading env file for DB from: ", env_file)
     load_dotenv(dotenv_path=env_file)
 
 # get MongoDB credentials from ENV variables

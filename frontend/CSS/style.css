@@ -4,6 +4,7 @@
     margin: 0;
     padding: 0;
     font-family: "Fira Code", "Poppins";
+    font-size: 16px;
     box-sizing: border-box;
 
     ::placeholder {
@@ -630,14 +631,22 @@ footer {
 
 /* contact section and form */
 
+.formsee{
+    width: 100%;
+    height: fit-content;
+    margin: auto 0;
+}
+
 .form {
     width: 100%;
-    height: 100%;
+    height: fit-content;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 12px;
-    overflow: auto;
+    font-size: 15px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 
@@ -663,12 +672,13 @@ footer {
 
 .person-1 {
     width: 100%;
+    /* height: fit-content; */
     background-color: var(--bg-color);
     outline: none;
     border: none;
     border-radius: 4px;
     color: var(--font-color);
-    font-size: 16px;
+    font-size: 15px;
     padding: 12px 12px;
 }
 
