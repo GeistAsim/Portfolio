@@ -117,8 +117,8 @@ async function sendMessage(FormData) {
         body: JSON.stringify(FormData)
     });
 
-    if (!res.ok) throw Error ("Failed to send message")
-    
+    if (!res.ok) throw Error("Failed to send message")
+
     let data = await res.json();
     console.log("res data: ", data);
     return data

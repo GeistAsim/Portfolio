@@ -1,12 +1,13 @@
 from fastapi import APIRouter
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi import BackgroundTasks
 from fastapi import Form
 from fastapi.requests import Request
 from fastapi.responses import JSONResponse
+from bson import ObjectId
 from config.message_server import email_Server, ES_MAIL, ES_PASS
 from config.db import conn
-from schema.py_valid import Home, ContactForm
+from schema.py_valid import Home, ContactForm, Link, UpdateLink
 from model.py_model import (
     home_Entitys,
     link_Entitys,
@@ -14,6 +15,7 @@ from model.py_model import (
     project_Entitys,
     contact_Entitys,
 )
+from model.py_model import link_Entity
 
 # Making a router
 my = APIRouter()
@@ -68,7 +70,7 @@ async def postProject(
             "imglink": imglink,
         }
 
-        post = conn.prjects.projects.insert_one(project_doc)
+        post = conn.projects.projects.insert_one(project_doc)
 
         return JSONResponse(
             content={
@@ -86,9 +88,8 @@ async def postProject(
 async def loadprojects():
     docs = conn.projects.projects.find({})
     projects_data = project_Entitys(docs)
-    print("project data", projects_data)
 
-    if not docs:
+    if not projects_data:
         return JSONResponse(content=projects_data, status_code=404)
 
     return JSONResponse(content=projects_data, status_code=200)
@@ -110,7 +111,7 @@ async def loadContact():
 @my.post("/contact")
 async def postMessage(form: ContactForm, background_tasks: BackgroundTasks):
     # save message in DB
-    conn.contacts.contacts.insert_one(form.dict())
+    # conn.contacts.contacts.insert_one(form.dict())
 
     # ---Email Setup---
     my_email = ES_MAIL
@@ -139,7 +140,7 @@ Message: {form.message}
     )
 
     # Confirmation mail to client
-    client_subject = f"✅ We received your message"
+    client_subject = f"✅ I received your message"
     client_body = f"""
 Hello {form.name} ,
 
@@ -164,3 +165,49 @@ I will get back to you shortly.
     )
 
     return {"status": "success", "message": "Message recieved! & stored in DB"}
+
+
+# post links
+@my.post("/post/links", response_model=Link)
+async def newlink(link: Link):
+    # make url a plain str
+    data = link.dict()
+    data["url"] = str(link.url)
+
+    # inert in DB
+    docs = conn.home.links.insert_one(data)
+
+    if not docs:
+        return {"status": "failed", "message": "server filed to post link"}
+
+    print(docs)
+    return link
+
+
+# update links
+@my.put("/update/links/{link_ID}", response_model=UpdateLink)
+async def updatedlink(link_ID: str, link: UpdateLink):
+    try:
+        obj_id = ObjectId(link_ID)
+    except:
+        raise HTTPException(status_code=404, detail="Invalid link_ID format")
+
+    existing = conn.home.links.find_one({"_id": obj_id})
+    if not existing:
+        raise HTTPException(status_code=400, detail="link not found")
+
+    updateData = {
+        k: (str(v) if k == "url" and v is not None else v)
+        for k, v in link.dict().items()
+        if v is not None
+    }
+    if not updateData:
+        raise HTTPException(status_code=400, detail="No data provided to update")
+
+    updateDocs = conn.home.links.update_one({"_id": obj_id}, {"$set": updateData})
+
+    if updateDocs.modified_count == 0:
+        raise HTTPException(status_code=400, detail="No change were made")
+
+    newdoc = conn.home.links.find_one({"_id": obj_id})
+    return link_Entity(newdoc)

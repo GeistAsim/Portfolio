@@ -1,5 +1,8 @@
 import { server } from "./server.js";
 
+// pages route
+const routes = ["home", "about", "projects", "contact"]
+
 // load html page function
 async function loadpages(i, push = true) {
 
@@ -46,7 +49,7 @@ async function loadpages(i, push = true) {
 
         // Pushing history only when needed
         if (push) {
-            history.pushState({ index: i }, "", `#page${i}`)
+            history.pushState({ index: i }, "", `#${routes[i]}`)
         }
 
         updateNavHighlight(i)
@@ -67,10 +70,10 @@ async function sendFormData() {
 
         // collect form data
         const formdata = {
-            name: document.getElementById("clname").value,
-            email: document.getElementById("clemail").value,
-            subject: document.getElementById("clsubject").value,
-            message: document.getElementById("clmessage").value
+            "name": document.getElementById("clname").value,
+            "email": document.getElementById("clemail").value,
+            "subject": document.getElementById("clsubject").value,
+            "message": document.getElementById("clmessage").value
         }
 
         let response = await server("contact", formdata)
@@ -287,6 +290,8 @@ function updateNavHighlight(i) {
     });
     elements[i].style.color = "#FFA1AD"
     elements[i].style.borderBottom = "1px solid #FFA1AD"
+    console.log(elements);
+    
 }
 
 // main function
@@ -297,21 +302,22 @@ function main() {
     let itemEle = elements.children
 
     // add event listner to handle backword/forword
-    window.addEventListener("popstate", (event) => {
+    window.addEventListener("popstate", async (event) => {
         let i = event.state?.index ?? 0;
-        loadpages(i, false)
+        await loadpages(i, false)
     })
 
     // on page load
-    window.addEventListener("DOMContentLoaded", () => {
+    window.addEventListener("DOMContentLoaded", async () => {
         let pageIndx = 0;
-        let currentpageIndx = window.location.hash;
-        if (currentpageIndx.startsWith("#page")) {
-            let indx = parseInt(currentpageIndx.replace("#page", ""));
-            if (!isNaN(indx)) pageIndx = indx;
+        let hash = window.location.hash.replace("#", "");
+
+        let indx = routes.indexOf(hash);
+        if (indx !== -1) {
+            pageIndx = indx;
         }
 
-        loadpages(pageIndx)
+        await loadpages(pageIndx)
     });
 
 
@@ -328,10 +334,16 @@ function main() {
     // dynamic item click on nav btn
     Array.from(itemEle).forEach((item, i) => {
         // console.log(item);
-        item.addEventListener("click", () => {
+        item.addEventListener("click", async () => {
             // load pages
-            loadpages(i)
+            await loadpages(i)
         })
+    })
+
+    // add logo click
+    let logo = document.querySelector(".logo")
+    logo.addEventListener("click", async () => {
+        await loadpages(0)
     })
 }
 
