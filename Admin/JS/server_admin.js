@@ -45,7 +45,6 @@ async function upadteLinks(formData) {
         },
         body: JSON.stringify(formData)
     });
-    console.log("FormDATA: ", formData.id);
     // check response
     if (!res.ok) throw Error("Fialed to update");
 
@@ -61,13 +60,31 @@ async function loadAboutData() {
 
         let about_data = await res.json();
 
-        let found = about_data.find(about => about.title === title);
-        return found ? found.desc : null;
+        return about_data;
 
     }
     catch (error) {
         console.error("Failed to load about data: ", error);
         return null;
+    }
+}
+
+// Update about data
+async function updateabout(aboutDATA) {
+    try {
+        let res = await fetch(`${api}update/about/${aboutDATA.id}`, {
+            method: "PUT",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify(aboutDATA)
+        });
+        if (!res.ok) throw Error("failed in res (about)");
+
+        return res
+    }
+    catch (err) {
+        console.error("Failed to connect about backend");
     }
 }
 
@@ -90,11 +107,50 @@ async function loadProjects() {
 
 }
 
+// post projects
+async function postProject(projectData) {
+    let res = await fetch(`${api}add/project`, {
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(projectData)
+    });
+
+
+    // check response
+    if (!res.ok) throw Error("Failed to add link");
+
+    // return row response
+    return res;
+}
+
+// Update project
+async function updateProject(projectData) {
+    let res = await fetch(`${api}update/project/${projectData.id}`, {
+        method: "PUT",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(projectData)
+    });
+
+    // check response
+    if (!res.ok) throw Error("failed to update project");
+
+    return res;
+}
+
+
 // main function
 export async function server(page, m = null, key = null) {
     // about data
     if (page === "about") {
         return await loadAboutData();
+    }
+
+    else if (page === "aboutupdate" && key) {
+        return await updateabout(key);
     }
 
     // projects
@@ -115,10 +171,22 @@ export async function server(page, m = null, key = null) {
             return await postLinks(key);
         }
         else if (m === "PUT") {
-            return await upadteLinks(key)
+            return await upadteLinks(key);
         }
         else {
-            return "No Method allow"
+            return "No Method Allow";
+        }
+    }
+
+    else if (page == "postprojects" && m && key) {
+        if (m === "POST") {
+            return await postProject(key);
+        }
+        else if (m === "PUT") {
+            return await updateProject(key);
+        }
+        else {
+            return "no Method Allow";
         }
     }
 

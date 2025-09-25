@@ -43,9 +43,25 @@ async function loadHomeData() {
         const role = document.querySelector(".role");
         role.textContent = home_data.role;
 
+        // linkedIN ID
+        let linkedinID = document.querySelector(".linkedin");
+        let linkedID = await loadLinks("Linked IN");
+        linkedinID.setAttribute("href", linkedID);
+
+        // insta ID
+        let instaID = document.querySelector(".insta");
+        let instaDB = await loadLinks("Instagram");
+        instaID.setAttribute("href", instaDB);
+
+        // fiverr ID
+        let fiverrID = document.querySelector(".fiverr");
+        let fiverrDB = await loadLinks("Fiverr");
+        fiverrID.setAttribute("href", fiverrDB);
+
+
+        // git hub link
         let github_link = document.querySelectorAll(".github_link");
         let git = await loadLinks("GitHub");
-        console.log(git);
 
         github_link.forEach((g) => {
             // Add github link on all github entry point
@@ -120,7 +136,6 @@ async function sendMessage(FormData) {
     if (!res.ok) throw Error("Failed to send message")
 
     let data = await res.json();
-    console.log("res data: ", data);
     return data
 }
 

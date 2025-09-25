@@ -64,7 +64,7 @@ async function loadpages(i, push = true) {
 // send form data
 async function sendFormData() {
     let form = document.querySelector("#contactform");
-    console.log(form);
+
     form.addEventListener("submit", async (s) => {
         s.preventDefault();
 
@@ -72,7 +72,7 @@ async function sendFormData() {
         const formdata = {
             "name": document.getElementById("clname").value,
             "email": document.getElementById("clemail").value,
-            "subject": document.getElementById("clsubject").value,
+            // "subject": document.getElementById("clsubject").value,
             "message": document.getElementById("clmessage").value
         }
 
@@ -85,7 +85,6 @@ async function sendFormData() {
         else {
             alert("XX Message failed")
         }
-        console.log("clicked");
     })
 }
 
@@ -127,7 +126,7 @@ async function displayProject() {
                                 </a>
                             </div>
                             <div class="last flex hovertile">
-                                <p id="postdesc">${posts_data.project_desc}</p>
+                                <p id="postdesc" title="${posts_data.project_desc}">${posts_data.project_desc}</p>
                                 <a class="prjt-btn projectlink" href="${posts_data.link}" target="_blank">
                                     <button class="btn hoverbtn">
                                         view-project
@@ -255,7 +254,6 @@ function fileDropdowns() {
 
     function setupDropdownFiles(triggerParent, triggerClass) {
         let selects = document.querySelectorAll(triggerParent)
-        // console.log(selects);
 
         selects.forEach(select => {
             select.addEventListener("click", () => {
@@ -290,12 +288,10 @@ function updateNavHighlight(i) {
     });
     elements[i].style.color = "#FFA1AD"
     elements[i].style.borderBottom = "1px solid #FFA1AD"
-    console.log(elements);
-    
 }
 
 // main function
-function main() {
+async function main() {
 
     let elements = document.querySelector(".r-left")
 
@@ -306,6 +302,7 @@ function main() {
         let i = event.state?.index ?? 0;
         await loadpages(i, false)
     })
+
 
     // on page load
     window.addEventListener("DOMContentLoaded", async () => {
@@ -333,7 +330,6 @@ function main() {
 
     // dynamic item click on nav btn
     Array.from(itemEle).forEach((item, i) => {
-        // console.log(item);
         item.addEventListener("click", async () => {
             // load pages
             await loadpages(i)

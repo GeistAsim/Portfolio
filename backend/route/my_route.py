@@ -7,7 +7,15 @@ from fastapi.responses import JSONResponse
 from bson import ObjectId
 from config.message_server import email_Server, ES_MAIL, ES_PASS
 from config.db import conn
-from schema.py_valid import Home, ContactForm, Link, UpdateLink
+from schema.py_valid import (
+    Home,
+    ContactForm,
+    Link,
+    UpdateLink,
+    Project,
+    UpdateProject,
+    UpdateAbout,
+)
 from model.py_model import (
     home_Entitys,
     link_Entitys,
@@ -15,7 +23,7 @@ from model.py_model import (
     project_Entitys,
     contact_Entitys,
 )
-from model.py_model import link_Entity
+from model.py_model import link_Entity, project_Entity, about_Entity
 
 # Making a router
 my = APIRouter()
@@ -140,7 +148,7 @@ Message: {form.message}
     )
 
     # Confirmation mail to client
-    client_subject = f"✅ I received your message"
+    client_subject = f"✅ I received your message {form.name}"
     client_body = f"""
 Hello {form.name} ,
 
@@ -211,3 +219,73 @@ async def updatedlink(link_ID: str, link: UpdateLink):
 
     newdoc = conn.home.links.find_one({"_id": obj_id})
     return link_Entity(newdoc)
+
+
+@my.post("/add/project", response_model=Project)
+async def newProject(project: Project):
+    projectdata = project.dict()
+    projectdata["link"] = str(project.link)
+    projectdata["imglink"] = str(project.imglink)
+
+    # insert project in DB
+    docs = conn.projects.projects.insert_one(projectdata)
+
+    if not docs:
+        return {"status": "failed", "message": "server filed to post Project"}
+
+    print(docs)
+    return project
+
+
+@my.put("/update/project/{project_ID}", response_model=UpdateProject)
+async def updateProject(project_ID: str, project: UpdateProject):
+    try:
+        p_ID = ObjectId(project_ID)
+    except:
+        raise HTTPException(status_code=404, detail="Invalid project_ID format")
+
+    existing_project = conn.projects.projects.find_one({"_id": p_ID})
+    if not existing_project:
+        raise HTTPException(status_code=404, detail="No project found!")
+
+    projectupdate = {
+        k: (str(v) if (k == "link" or k == "imglink") and v is not None else v)
+        for k, v in project.dict().items()
+        if v is not None
+    }
+
+    if not projectupdate:
+        raise HTTPException(status_code=400, detail="No data provided to update")
+
+    updatedocs = conn.projects.projects.update_one(
+        {"_id": p_ID}, {"$set": projectupdate}
+    )
+    if updatedocs.modified_count == 0:
+        raise HTTPException(status_code=400, detail="No change were made")
+
+    newdoc = conn.projects.projects.find_one({"_id": p_ID})
+    return project_Entity(newdoc)
+
+
+# upadte about data
+@my.put("/update/about/{about_ID}", response_model=UpdateAbout)
+async def updateAbout(about_ID: str, bio: UpdateAbout):
+    try:
+        b_ID = ObjectId(about_ID)
+    except:
+        raise HTTPException(status_code=404, detail="Invalid project_ID format")
+
+    existing_about = conn.about.bio.find_one({"_id": b_ID})
+    if not existing_about:
+        raise HTTPException(status_code=400, detail="No DATA found")
+
+    bioUpdate = {k: v for k, v in bio.dict().items()}
+    if not bioUpdate:
+        raise HTTPException(status_code=400, detail="no DATA provided to update")
+
+    updatedocs = conn.about.bio.update_one({"_id": b_ID}, {"$set": bioUpdate})
+    if updatedocs.modified_count == 0:
+        raise HTTPException(status_code=400, detail="no changes were made")
+
+    newdoc = conn.about.bio.find_one({"_id": b_ID})
+    return about_Entity(newdoc)

@@ -14,7 +14,7 @@
 }
 
 
-@media (min-width: 1948px) {
+@media (min-width: 1800px) {
     body {
         background-color: #020618;
         display: flex;
@@ -24,6 +24,10 @@
 
     .body {
         width: 1948px;
+    }
+
+    .box {
+        width: 25%;
     }
 }
 

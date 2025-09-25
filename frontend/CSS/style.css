@@ -559,9 +559,8 @@ footer {
 
 .tile {
     width: 100%;
-    height: 100%;
-    width: 100%;
-    height: 353px;
+    min-height: 316px;
+    /* height: 316px; */
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
@@ -591,18 +590,27 @@ footer {
 
 .tile .last {
     width: 100%;
-    height: 100%;
+    height: calc(100% - 214px);
     flex-direction: column;
     justify-content: center;
     gap: 12px;
     color: var(--comment);
     font-size: 12px;
-    padding: 0 24px;
+    padding: 8px 24px;
     word-wrap: break-word;
 }
 
 .tile:hover .last {
     color: var(--font-color);
+}
+
+.last #postdesc {
+    max-height: calc(100% - 44px);
+    overflow: clip;
+}
+
+.last .prjt-btn {
+    height: 42%;
 }
 
 .prjt-btn {
@@ -631,7 +639,7 @@ footer {
 
 /* contact section and form */
 
-.formsee{
+.formsee {
     width: 100%;
     height: fit-content;
     margin: auto 0;

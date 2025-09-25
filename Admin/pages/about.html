@@ -10,27 +10,19 @@
                 <th class="p-3 text-center w-1/6">Action</th>
             </tr>
         </thead>
-        <tbody>
-            <tr class="border-b" id="about">
-                <td class="p-3 border-r text-justify"></td>
-                <td class="p-3 border-r text-justify"></td>
-                <td class="p-3 flex items-center justify-center gap-3">
-                    <button type="submit"
-                        class="bg-gray-800 text-[16px] text-white py-2 px-3 rounded-xl cursor-pointer">
-                        Update
-                    </button>
-                </td>
-            </tr>
-        </tbody>
+        <tbody id="abouttable"></tbody>
     </table>
 
 
     <!-- Form for updating -->
-    <div id="addproject"
+    <div id="addabout"
         class="aboutForm temp w-full min-h-screen inset-0 overflow-y-auto overflow-x-hidden fixed top-0 hidden items-start justify-center backdrop-blur-sm">
 
         <!-- logo -->
         <img src="/frontend/images/svg/logo.svg" class="h-8 px-3 cursor-pointer fixed z-100 top-4 left-3">
+
+        <!-- close -->
+        <img src="images/svg/close.svg" id="clsform" class="h-8 px-3 cursor-pointer fixed z-100 top-4 right-3">
 
         <form action="" style="margin: auto;" class="w-[90%] sm:w-[70%] lg:w-[60%] 
          p-5 border-2 rounded-2xl 
@@ -39,23 +31,22 @@
 
             <!-- Area -->
             <div class="w-full flex flex-col items-start gap-1">
-                <label class="text-[14px] px-3">Area</label>
-                <input type="text" class="bg-white w-full min-w-0 py-2 px-3 border-2 rounded-xl outline-none box-border"
-                    placeholder="Project Area...">
+                <label class="text-[14px] px-3">Field Name</label>
+                <input type="text" id="fieldname"
+                    class="bg-white w-full min-w-0 py-2 px-3 border-2 rounded-xl outline-none box-border"
+                    placeholder="Field name...">
             </div>
 
             <!-- Area Description -->
             <div class="w-full flex flex-col items-start gap-1">
-                <label class="text-[14px] px-3">Area Description</label>
-                <textarea placeholder="Area Description..." class="bg-white py-3 px-2 border-2 rounded-xl w-full min-w-0 resize-none 
+                <label class="text-[14px] px-3">Field Description</label>
+                <textarea id="fielddesc" placeholder="Field Description..." class="bg-white py-3 px-2 border-2 rounded-xl w-full min-w-0 resize-none 
              min-h-[250px] outline-none box-border"></textarea>
             </div>
 
             <!-- Button -->
             <div class="w-full flex items-center justify-center">
-                <button type="submit" class="bg-gray-800 text-white py-2 px-3 rounded-xl cursor-pointer">
-                    Update Area
-                </button>
+                <button type="submit" id="btn" class="bg-gray-800 text-white py-2 px-3 rounded-xl cursor-pointer"></button>
             </div>
         </form>
 

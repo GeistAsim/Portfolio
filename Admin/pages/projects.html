@@ -1,9 +1,10 @@
-<div id="project" class="relative px-5 py-5 gap-6 flex flex-col items-center justify-around">
+<div id="project" class="relative z-0 px-5 py-5 gap-6 flex flex-col items-center justify-around">
     <div class="name border-b-2 border-gray-800 w-full text-center py-2 sticky top-0">
         <h1 class="text-gray-800 font-extrabold text-3xl">Projects Page</h1>
     </div>
     <div class="btn w-fit flex items-center fixed right-5 top-22 ">
-        <button type="submit" class="bg-gray-800 text-white w-max py-2 px-3 rounded-xl cursor-pointer">+ New
+        <button type="submit" id="newformbtn" class="bg-gray-800 text-white w-max py-2 px-3 rounded-xl cursor-pointer">+
+            New
             Project</button>
     </div>
 
@@ -11,34 +12,26 @@
     <table class="table-auto border-collapse border border-gray-800 w-full text-left">
         <thead class="bg-gray-100">
             <tr class="border-b text-xl">
-                <th class="p-3 border-r text-center w-1/5">Project</th>
+                <th class="p-3 border-r text-center w-1/5">Project Name</th>
                 <th class="p-3 border-r text-center">Project Description</th>
                 <th class="p-3 text-center w-1/6">Action</th>
             </tr>
         </thead>
-        <tbody>
-            <tr class="border-b" id="projects">
-                <td class="p-3 border-r text-justify"></td>
-                <td class="p-3 border-r text-justify"></td>
-                <td class="p-3 flex items-center justify-center gap-3">
-                    <button type="submit" class="bg-gray-800 text-white py-2 px-3 rounded-xl cursor-pointer">
-                        Update
-                    </button>
-                    <button type="submit" class="bg-red-800 text-white py-2 px-4 rounded-xl cursor-pointer">
-                        Delete
-                    </button>
-                </td>
-            </tr>
-        </tbody>
+        <tbody id="projects"></tbody>
     </table>
 </div>
 
+
+
 <!-- prject form -->
-<div id="addproject"
+<div id="projectform"
     class="aboutForm temp w-full min-h-screen inset-0 overflow-y-auto overflow-x-hidden fixed top-0 hidden items-start justify-center backdrop-blur-sm">
 
     <!-- logo -->
     <img src="/frontend/images/svg/logo.svg" class="h-8 px-3 cursor-pointer fixed z-100 top-4 left-3">
+
+    <!-- close -->
+    <img src="images/svg/close.svg" id="clsform" class="h-8 px-3 cursor-pointer fixed z-100 top-4 right-3">
 
     <form action="" style="margin: auto;" class="w-[90%] sm:w-[70%] lg:w-[60%] 
          p-5 border-2 rounded-2xl 
@@ -47,37 +40,38 @@
 
         <!-- Name -->
         <div class="w-full flex flex-col items-start gap-1">
-            <label class="text-[14px] px-3">Name</label>
-            <input type="text" class="bg-white w-full min-w-0 py-2 px-3 border-2 rounded-xl outline-none box-border"
+            <label class="text-[14px] px-3">Project Name</label>
+            <input id="projectname" type="text"
+                class="bg-white w-full min-w-0 py-2 px-3 border-2 rounded-xl outline-none box-border"
                 placeholder="Project name...">
         </div>
 
         <!-- Project Link -->
         <div class="w-full flex flex-col items-start gap-1">
             <label class="text-[14px] px-3">Project Link</label>
-            <input type="text" class="bg-white w-full min-w-0 py-2 px-3 border-2 rounded-xl outline-none box-border"
+            <input id="plink" type="text"
+                class="bg-white w-full min-w-0 py-2 px-3 border-2 rounded-xl outline-none box-border"
                 placeholder="Project link...">
         </div>
 
         <!-- Project Image -->
         <div class="w-full flex flex-col items-start gap-1">
             <label class="text-[14px] px-3">Project Image Link</label>
-            <input type="text" class="bg-white w-full min-w-0 py-2 px-3 border-2 rounded-xl outline-none box-border"
+            <input id="imglink" type="text"
+                class="bg-white w-full min-w-0 py-2 px-3 border-2 rounded-xl outline-none box-border"
                 placeholder="Project Image link...">
         </div>
 
         <!-- Description -->
         <div class="w-full flex flex-col items-start gap-1">
             <label class="text-[14px] px-3">Description</label>
-            <textarea placeholder="Project description..." class="bg-white py-3 px-2 border-2 rounded-xl w-full min-w-0 resize-none 
+            <textarea id="desc" placeholder="Project description..." class="forminput bg-white py-3 px-2 border-2 rounded-xl w-full min-w-0 resize-none 
              min-h-[250px] outline-none box-border"></textarea>
         </div>
 
         <!-- Button -->
         <div class="w-full flex items-center justify-center">
-            <button type="submit" class="bg-gray-800 text-white py-2 px-3 rounded-xl cursor-pointer">
-                Add Project
-            </button>
+            <button type="submit" id="btn" class="bg-gray-800 text-white py-2 px-3 rounded-xl cursor-pointer"></button>
         </div>
     </form>
 
