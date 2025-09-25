@@ -3,7 +3,7 @@ const api = `http://127.0.0.1:8000/api/`
 
 
 // fetch links
-async function loadLinks(title) {
+export async function loadLinks(title) {
     try {
         // load links
         let res = await fetch(`${api}links`);
@@ -158,6 +158,6 @@ export async function server(page, key = null) {
     }
 
     else if (page === "contact" && key) {
-        return await sendMessage(key)
+        return await sendMessage(key);
     }
 }

@@ -1,4 +1,4 @@
-import { server } from "./server.js";
+import { server, loadLinks } from "./server.js";
 
 // pages route
 const routes = ["home", "about", "projects", "contact"]
@@ -37,6 +37,19 @@ async function loadpages(i, push = true) {
         // show about_text when about.html loaded
         else if (i === 1) {
             paraloading(0);
+
+            try {
+                let emaillinks = document.querySelectorAll(".sendmessage");
+                let emailDB = await loadLinks("Email");
+                emaillinks.forEach(m => {
+                    m.setAttribute("href", `mailto:${emailDB}`)
+                    m.textContent = emailDB
+                })
+            }
+            catch (err) {
+                console.error("sendmessage: ", err);
+            }
+
         }
 
         else if (i === 2) {
@@ -45,6 +58,18 @@ async function loadpages(i, push = true) {
 
         else if (i === 3) {
             await sendFormData()
+
+            try {
+                let emaillinks = document.querySelectorAll(".sendmessage");
+                let emailDB = await loadLinks("Email");
+                emaillinks.forEach(m => {
+                    m.setAttribute("href", `mailto:${emailDB}`)
+                    m.textContent = emailDB
+                })
+            }
+            catch (err) {
+                console.error("sendmessage: ", err);
+            }
         }
 
         // Pushing history only when needed
@@ -291,7 +316,7 @@ function updateNavHighlight(i) {
 }
 
 // main function
-async function main() {
+function main() {
 
     let elements = document.querySelector(".r-left")
 
