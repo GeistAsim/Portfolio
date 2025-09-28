@@ -9,7 +9,7 @@ app = FastAPI()
 origins = [
     "https://asimsaifi.netlify.app",
     "https://adminasimsaifi.netlify.app",
-    "http://127.0.0.1:3000",
+    "http://127.0.0.1:3000"
 ]
 
 # make a bridge connection between frontend and admin <---> backend
