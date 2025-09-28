@@ -12,7 +12,7 @@ origins = [
     "http://127.0.0.1:3000",
 ]
 
-# make a bridge connection between frontend <---> backend
+# make a bridge connection between frontend and admin <---> backend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,

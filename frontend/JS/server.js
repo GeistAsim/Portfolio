@@ -1,5 +1,5 @@
 // API 
-const api = `https://my-backend-support.onrender.com`
+const api = `https://my-backend-support.onrender.com/api/`
 
 // const api = `http://127.0.0.1:8000/api/` // For development
 
