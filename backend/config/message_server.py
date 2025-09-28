@@ -23,7 +23,7 @@ if ENV == "Development":
 def email_Server(sender_email, password, to_email, subject, body):
     # create a MiMe message with UTF-8 encoding
     message = MIMEMultipart('alternative')
-    message["Form"] = sender_email
+    message["From"] = sender_email
     message["To"] = to_email
     message["Subject"] = subject
 
