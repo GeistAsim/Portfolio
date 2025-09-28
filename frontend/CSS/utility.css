@@ -1,0 +1,124 @@
+a {
+    text-decoration: none;
+    color: #90A1B9;
+}
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.icon{
+    width: 32px;
+    height: 32px;
+}
+
+
+/* For WebKit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f172b;
+    /* Dark track */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #90A1B9;
+    /* Dark gray thumb */
+    border-radius: 10px;
+    /* border: 3px solid #1a1a1a; */
+    /* Match track background */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #0f172b;
+    /* Slightly lighter on hover */
+}
+
+/* For Firefox */
+* {
+    scrollbar-width: thin;
+    /* options: auto, thin, none */
+    scrollbar-color: #90A1B9 #0f172b;
+    /* thumb color, track color */
+}
+
+
+/* custom check box */
+.custom-checkbox {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.custom-checkbox input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 17px;
+    width: 17px;
+    background-color: #0f172b;
+    border: 2px solid #90A1B9;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+.custom-checkbox input:checked~.checkmark {
+    background-color: #90A1B9;
+    /* Blue background */
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 4px;
+    top: 0;
+    width: 4px;
+    height: 9px;
+    border: 1px solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.custom-checkbox input:checked~.checkmark::after {
+    display: block;
+}
+
+
+
+
+.flex {
+    display: flex;
+}
+
+.border-1 {
+    position: absolute;
+    height: 100%;
+    border-right: 1px solid var(--border);
+    top: 0;
+    right: 0;
+}
+
+.border-2 {
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid var(--border);
+    bottom: 0;
+    right: 0;
+}
+
+.direct {
+    width: 18px;
+    height: 18px;
+}

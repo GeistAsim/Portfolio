@@ -1,0 +1,315 @@
+:root {
+    --bg-color: #020618;
+    --font-color: #ffffff;
+    --hero-color: #0F172B;
+    --border: #314158;
+
+    /* colors */
+    --purple: #615FFF;
+    --green: #00D5BE;
+    --red: #FFA1AD;
+    --comment: #90A1B9;
+    --svg: #62748e;
+    --line: #314158;
+}
+
+
+@media (min-width: 1800px) {
+    body {
+        background-color: #020618;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .body {
+        width: 1948px;
+    }
+
+    .box {
+        width: 25%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .box {
+        width: 49%;
+    }
+
+    .find {
+        padding: 0 12px;
+    }
+}
+
+/* max-width: 980px */
+@media (max-width: 1070px) {
+
+    .body{
+        height: calc(100vh - 55px);
+    }
+
+    .hero {
+        width: 94%;
+        height: 96%;
+    }
+
+    .logo {
+        width: 100%;
+    }
+
+    .log-br {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+    }
+
+    .cls {
+        display: flex;
+        top: 12px;
+    }
+
+    .nav-right {
+        width: 30%;
+        height: calc(100% - 2px);
+        display: flex;
+        padding: 12px 14px;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        gap: 0;
+        position: absolute;
+        right: -110%;
+        bottom: 1px;
+        background-color: var(--bg-color);
+        z-index: 1;
+        border-left: 1px solid var(--border);
+        border-radius: 0 9px 9px 0;
+        overflow-y: auto;
+    }
+
+    .r-left div:hover {
+        color: var(--green);
+    }
+
+    .menu-1 {
+        height: fit-content;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-start;
+        gap: 8px;
+        word-wrap: break-word;
+        position: absolute;
+        left: 0;
+        top: 47px;
+    }
+
+    #hello {
+        border-top: 1px solid var(--border);
+    }
+
+    .hello {
+        padding: 10px;
+        border-bottom: 1px solid var(--border);
+        border-right: none;
+    }
+
+    .menu-2 {
+        width: 100%;
+        justify-content: flex-end;
+        gap: 8px;
+    }
+
+    .see-1{
+        max-width: 65%;
+    }
+
+    .form-box {
+        width: 80%;
+    }
+
+    .box {
+        width: 48%;
+    }
+
+    .fxwd,
+    .find {
+        padding: 6px;
+        border-right: 1px solid var(--border);
+    }
+
+}
+
+@media (max-width: 860px) {
+    .box {
+        width: 48%;
+    }
+
+    .nav-right {
+        width: 50%;
+    }
+
+    .contact {
+        border: none;
+    }
+
+    .see-1{
+        max-width: 75%;
+    }
+}
+
+
+@media (max-width: 752px) {
+
+    .box {
+        width: 100%;
+    }
+
+    .file{
+        border: none;
+    }
+
+    .hello img {
+        max-width: 100%;
+        max-height: 50%;
+    }
+
+    .role {
+        padding-bottom: 112px;
+    }
+
+    .find {
+        width: 66%;
+        padding: 0;
+    }
+
+    .no-br-1 {
+        border: none;
+    }
+
+    .f-right {
+        display: none;
+    }
+
+    .fxwd {
+        width: 66px;
+        height: 52px;
+    }
+
+    .foot-1 {
+        padding: 0;
+    }
+
+    .border-1,
+    .border-2 {
+        display: none;
+    }
+
+    /* about section */
+    .aboutRspsv {
+        flex-direction: column;
+        /* overflow-y: auto; */
+    }
+
+    .side {
+        width: 100%;
+        height: fit-content;
+        margin-bottom: 12px;
+    }
+
+    .see-1{
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 460px) {
+
+    .container {
+        padding-bottom: 23px;
+    }
+
+    .post{
+        padding: 4px;
+    }
+
+    .tile .last {
+        padding: 0 12px;
+    }
+
+    .form-box {
+        width: 95%;
+    }
+
+    .cls {
+        top: 20px;
+        right: 14px;
+    }
+
+    .nav-right {
+        width: calc(100% - 1px);
+        border-radius: 9px;
+        gap: 16px;
+    }
+
+    .logo-box {
+        display: flex;
+    }
+
+    .nav-logo {
+        display: flex;
+        /* position: relative; */
+    }
+
+    #hello {
+        border-top: none;
+    }
+
+    .menu-1 {
+        position: absolute;
+        left: 0;
+        top: 63px;
+    }
+
+    .name{
+        font-size: 58px;
+        padding: 19px 0;
+    }
+
+    .role{
+        font-size: 25px;
+    }
+
+    footer {
+        height: 22px;
+    }
+
+    .find {
+        width: 71%;
+        font-size: 12px;
+    }
+
+    .f-hide {
+        display: none;
+    }
+
+    .no-br-2 {
+        border: none;
+    }
+
+    .border-3 {
+        width: 100%;
+        border-bottom: 1px solid var(--border);
+        position: absolute;
+        top: 63px;
+        left: 0;
+    }
+
+    .border-4 {
+        width: 100%;
+        border-bottom: 1px solid var(--border);
+        position: absolute;
+        top: 63px;
+        left: 0;
+    }
+}
