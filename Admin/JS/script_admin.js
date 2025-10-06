@@ -257,7 +257,7 @@ async function projects() {
                     data: ID,
                     inputmap: {
                         "project": "#projectname",
-                        "project_desc": "#desc",
+                        "project_desc": "#projectdesc",
                         "link": "#plink",
                         "imglink": "#imglink"
                     },
