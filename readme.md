@@ -1,4 +1,4 @@
-# Synaptrix Asim – Personal Portfolio
+# Geist Asim – Personal Portfolio
 
 [![GitHub stars](https://img.shields.io/github/stars/SynaptrixAsim/asim-saifi?style=social)](https://github.com/SynaptrixAsim/asim-saifi)  
 _A little window into who I am, what I’ve built and where I’m going_
