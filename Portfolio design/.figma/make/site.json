@@ -1,0 +1,10 @@
+{
+  "description": "Showcase your skills and projects with a responsive portfolio designed for full stack developers, featuring sections for home, about, projects, and contact.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
