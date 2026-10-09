@@ -2,7 +2,7 @@ import { Button } from './ui/button';
 import { Mail, Download } from 'lucide-react';
 import { Github, Linkedin } from './icons';
 
-const Hero = () => {
+const Hero = ({ data }) => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -15,14 +15,13 @@ const Hero = () => {
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl lg:text-7xl mb-6 bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-            Dagm Yibabe
+            {data.name}
           </h1>
           <h2 className="text-xl md:text-2xl lg:text-3xl text-muted-foreground mb-8">
-            Software Developer
+            {data.role}
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground mb-12 max-w-3xl mx-auto leading-relaxed">
-            Passionate about creating innovative web applications and solving complex problems with clean, efficient code. 
-            Specializing in React, Node.js, and modern web technologies.
+            {data.bio}
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
@@ -46,7 +45,7 @@ const Hero = () => {
 
           <div className="flex justify-center items-center space-x-6">
             <a 
-              href="https://github.com/dag12y" 
+              href={data.socials.github} 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -54,7 +53,7 @@ const Hero = () => {
               <Github className="h-6 w-6" />
             </a>
             <a 
-              href="https://www.linkedin.com/in/dagm-yibabe-46b85b353/" 
+              href={data.socials.linkedin} 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -62,7 +61,7 @@ const Hero = () => {
               <Linkedin className="h-6 w-6" />
             </a>
             <a 
-              href="mailto:dagimyibabe19@gmail.com"
+              href={`mailto:${data.socials.email}`}
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               <Mail className="h-6 w-6" />
@@ -74,7 +73,7 @@ const Hero = () => {
               asChild
             >
               <a
-                href="https://drive.google.com/uc?export=download&id=1crrOHNxQ95VJ9fNAL4X45xM8kiiXF2zw"
+                href={data.resume_link}
                 target="_blank"
                 rel="noopener noreferrer"
               >

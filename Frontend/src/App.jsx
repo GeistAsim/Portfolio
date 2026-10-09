@@ -8,19 +8,22 @@ import Experience from "./components/Experience";
 import Contact from "./components/Contact";
 import { Mail, Heart } from 'lucide-react';
 import { Github, Linkedin } from './components/icons';
+import portfolioData from './data/portfolio.json';
 
 export default function App() {
+  const { hero } = portfolioData;
+
   return (
     <ThemeProvider>
       <div className="min-h-screen bg-background transition-colors duration-300">
         <Navigation />
         <main>
-          <Hero />
-          <About />
-          <Skills />
-          <Projects />
-          <Experience />
-          <Contact />
+          <Hero data={portfolioData.hero} />
+          <About data={portfolioData.about} />
+          <Skills data={portfolioData.skills} />
+          <Projects data={portfolioData.projects} />
+          <Experience data={portfolioData.experience} />
+          <Contact data={portfolioData.contact} />
         </main>
 
         {/* Footer */}
@@ -29,15 +32,13 @@ export default function App() {
             <div className="max-w-6xl mx-auto">
               <div className="grid md:grid-cols-3 gap-8 mb-8">
                 <div>
-                  <h3 className="text-xl mb-4">Dagm Yibabe</h3>
+                  <h3 className="text-xl mb-4">{hero.name}</h3>
                   <p className="text-primary-foreground/80 mb-4">
-                    Full Stack Developer passionate about
-                    creating innovative web solutions and
-                    building amazing user experiences.
+                    {hero.bio}
                   </p>
                   <div className="flex space-x-4">
                     <a
-                      href="https://github.com/dag12y"
+                      href={hero.socials.github}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
@@ -45,7 +46,7 @@ export default function App() {
                       <Github className="h-5 w-5" />
                     </a>
                     <a
-                      href="https://www.linkedin.com/in/dagm-yibabe-46b85b353/"
+                      href={hero.socials.linkedin}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
@@ -53,7 +54,7 @@ export default function App() {
                       <Linkedin className="h-5 w-5" />
                     </a>
                     <a
-                      href="mailto:dagimyibabe19@gmail.com"
+                      href={`mailto:${hero.socials.email}`}
                       className="text-primary-foreground/80 hover:text-primary-foreground transition-colors"
                     >
                       <Mail className="h-5 w-5" />
@@ -138,7 +139,7 @@ export default function App() {
                 <p className="text-primary-foreground/80 flex items-center justify-center gap-2">
                   Made with{" "}
                   <Heart className="h-4 w-4 text-red-400" /> by
-                  Dagm Yibabe © {new Date().getFullYear()}
+                  {hero.name} © {new Date().getFullYear()}
                 </p>
               </div>
             </div>

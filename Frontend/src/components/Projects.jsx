@@ -23,119 +23,7 @@ const ImageWithFallback = ({ src, alt, ...props }) => {
   );
 };
 
-const Projects = () => {
-  const projects = [
-    {
-      id: 1,
-      title: "Letter Hunt",
-      description:
-        "A fun and interactive word guessing game built with modern web technologies. Players guess letters to uncover hidden words within a limited number of attempts.",
-      image:
-        "https://i.postimg.cc/7LYmysFC/Screenshot-2025-07-17-212657.png",
-      category: "Web Game",
-      technologies: [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Vite",
-        "React",
-      ],
-      features: [
-        "Interactive word guessing gameplay",
-        "Responsive design for mobile and desktop",
-        "Clean and modern UI",
-        "Dynamic scoring system",
-        "Fast performance with Vite build tool",
-      ],
-      links: {
-        live: "https://letter-hunt.vercel.app/",
-        github: "https://github.com/dag12y/Letter-Hunt",
-      },
-      status: "Live",
-      featured: true,
-    },
-    {
-      id: 2,
-      title: "Tenzies",
-      description:
-        "A fast-paced dice game where players roll to match all dice to the same number. Built with React for a smooth user experience and interactive gameplay.",
-      image:
-        "https://i.postimg.cc/YCxbZKsK/Screenshot-2025-07-17-212026.png",
-      category: "Web Game",
-      technologies: ["React", "JavaScript", "CSS", "Vite"],
-      features: [
-        "Dice rolling mechanic",
-        "Game state persistence",
-        "Winning condition detection",
-        "Responsive and clean UI",
-        "Fast performance with Vite build tool",
-      ],
-      links: {
-        live: "https://tenzies-dagm.vercel.app/",
-        github: "https://github.com/dag12y/Tenzies",
-      },
-      status: "Live",
-      featured: false,
-    },
-    {
-      id: 3,
-      title: "Chef-AI",
-      description:
-        "An AI-powered recipe suggestion app that generates personalized cooking ideas based on available ingredients. Built with React and powered by modern AI APIs.",
-      image: "https://i.postimg.cc/L6xJbx3Q/image.png",
-      category: "Web App",
-      technologies: [
-        "React",
-        "JavaScript",
-        "CSS",
-        "AI APIs",
-        "Vite",
-      ],
-      features: [
-        "AI-driven recipe generation",
-        "Ingredient-based search",
-        "User-friendly interface",
-        "Responsive design",
-        "Fast loading with Vite",
-      ],
-      links: {
-        live: "https://chef-ai-two.vercel.app/",
-        github: "https://github.com/dag12y/Chef-AI",
-      },
-      status: "Live",
-      featured: true,
-    },
-    {
-      id: 4,
-      title: "Amharic-Tigrigna Analyser",
-      description:
-        "A linguistic analysis tool that processes Amharic and Tigrigna texts for morphological and syntactic insights. Designed to support language researchers and learners.",
-      image:
-        "https://i.postimg.cc/PxzDrZBC/Screenshot-2025-07-17-220555.png",
-      category: "Language Tool",
-      technologies: [
-        "Python",
-        "Natural Language Processing",
-        "Machine Learning",
-        "Flask",
-        "JavaScript",
-      ],
-      features: [
-        "Morphological analysis",
-        "Syntactic parsing",
-        "Text tokenization",
-        "Frequency distribution analysis",
-        "User-friendly interface",
-      ],
-      links: {
-        live: null,
-        github:
-          "https://github.com/dag12y/amharic-tigrigna-analyser",
-      },
-      status: "Completed",
-      featured: true,
-    },
-  ];
+const Projects = ({ data }) => {
   const categories = [
     "All",
     "Web Game", 
@@ -147,12 +35,12 @@ const Projects = () => {
 
   const filteredProjects =
     selectedCategory === "All"
-      ? projects
-      : projects.filter(
+      ? data
+      : data.filter(
           (project) => project.category === selectedCategory,
         );
 
-  const featuredProjects = projects.filter(
+  const featuredProjects = data.filter(
     (project) => project.featured,
   );
 

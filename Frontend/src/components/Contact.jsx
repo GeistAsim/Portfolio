@@ -7,8 +7,10 @@ import { Label } from './ui/label';
 import { Alert, AlertDescription } from './ui/alert';
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle, Loader2 } from 'lucide-react';
 import { Github, Linkedin, Twitter } from './icons';
+import portfolioData from '../data/portfolio.json';
 
-const Contact = () => {
+const Contact = ({ data }) => {
+  const { hero } = portfolioData;
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -68,19 +70,19 @@ const Contact = () => {
     {
       icon: <Mail className="h-5 w-5" />,
       label: "Email",
-      value: "dagimyibabe19@gmail.com",
-      href: "mailto:dagimyibabe19@gmail.com"
+      value: data.email,
+      href: `mailto:${data.email}`
     },
     {
       icon: <Phone className="h-5 w-5" />,
       label: "Phone",
-      value: "+251-97-913-5593",
-      href: "tel:+251979135593"
+      value: data.phone,
+      href: `tel:${data.phone}`
     },
     {
       icon: <MapPin className="h-5 w-5" />,
       label: "Location",
-      value: "Debre Berhan, Ethiopia",
+      value: data.location,
       href: "#"
     }
   ];
@@ -89,25 +91,25 @@ const Contact = () => {
     {
       icon: <Github className="h-6 w-6" />,
       label: "GitHub",
-      href: "https://github.com/dag12y",
+      href: hero.socials.github,
       color: "hover:text-gray-700 dark:hover:text-gray-300"
     },
     {
       icon: <Linkedin className="h-6 w-6" />,
       label: "LinkedIn",
-      href: "https://www.linkedin.com/in/dagm-yibabe-46b85b353/",
+      href: hero.socials.linkedin,
       color: "hover:text-blue-600"
     },
     {
       icon: <Twitter className="h-6 w-6" />,
       label: "Twitter",
-      href: "https://x.com/Dagm0852389280?t=I0AFervOaxY1izTAy-3P_A&s=09",
+      href: hero.socials.twitter,
       color: "hover:text-blue-400"
     },
     {
       icon: <Mail className="h-6 w-6" />,
       label: "Email",
-      href: "mailto:dagimyibabe19@gmail.com",
+      href: `mailto:${hero.socials.email}`,
       color: "hover:text-red-500"
     }
   ];
@@ -288,7 +290,7 @@ const Contact = () => {
                     </p>
                     <Button asChild>
                       <a 
-                        href="https://drive.google.com/uc?export=download&id=1crrOHNxQ95VJ9fNAL4X45xM8kiiXF2zw" 
+                        href={hero.resume_link} 
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center"
