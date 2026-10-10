@@ -53,12 +53,12 @@ const Navigation = () => {
                 {item.label}
               </button>
             ))}
-            <ThemeToggle />
+            {/*<ThemeToggle />*/}
           </div>
 
           {/* Mobile Navigation Toggle and Theme Toggle */}
           <div className="flex items-center space-x-2 md:hidden">
-            <ThemeToggle />
+            {/*<ThemeToggle />*/}
             <Button
               variant="ghost"
               size="sm"
