@@ -60,7 +60,7 @@ const Projects = ({ data }) => {
           </div>
 
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
+          <div className="hidden flex-wrap justify-center gap-2 mb-12">
             {categories.map((category) => (
               <Button
                 key={category}
@@ -80,16 +80,16 @@ const Projects = ({ data }) => {
           {/* Featured Projects */}
           {selectedCategory === "All" && (
             <div className="mb-16">
-              <h3 className="text-2xl md:text-3xl text-center mb-8">
-                🌟 Featured Projects
+              <h3 className="hidden text-2xl md:text-3xl text-center mb-8">
+                Featured Projects
               </h3>
               <div className="grid lg:grid-cols-2 gap-8">
                 {featuredProjects.map((project) => (
                   <Card
                     key={project.id}
-                    className="group hover:shadow-xl transition-all duration-300"
+                    className="group shadow-lg hover:shadow-xl transition-all duration-300"
                   >
-                    <div className="relative overflow-hidden">
+                    <div className="relative overflow-hidden rounded-t-xl">
                       <ImageWithFallback
                         src={project.image}
                         alt={project.title}
@@ -186,123 +186,7 @@ const Projects = ({ data }) => {
             </div>
           )}
 
-          {/* All Projects */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
-              <Card
-                key={project.id}
-                className="group hover:shadow-lg transition-all duration-300"
-              >
-                <div className="relative overflow-hidden">
-                  <ImageWithFallback
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <div className="absolute top-4 right-4">
-                    <Badge
-                      variant={
-                        project.status === "Live"
-                          ? "default"
-                          : "secondary"
-                      }
-                      className={
-                        project.status === "Live"
-                          ? "bg-green-500"
-                          : ""
-                      }
-                    >
-                      {project.status}
-                    </Badge>
-                  </div>
-                </div>
-                <CardHeader>
-                  <div className="flex justify-between items-start">
-                    <CardTitle className="text-lg">
-                      {project.title}
-                    </CardTitle>
-                    <Badge
-                      variant="outline"
-                      className="text-xs"
-                    >
-                      {project.category}
-                    </Badge>
-                  </div>
-                  <CardDescription className="text-sm">
-                    {project.description.substring(0, 100)}...
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    <div className="flex flex-wrap gap-1">
-                      {project.technologies
-                        .slice(0, 3)
-                        .map((tech, index) => (
-                          <Badge
-                            key={index}
-                            variant="secondary"
-                            className="text-xs"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      {project.technologies.length > 3 && (
-                        <Badge
-                          variant="secondary"
-                          className="text-xs"
-                        >
-                          +{project.technologies.length - 3}
-                        </Badge>
-                      )}
-                    </div>
-
-                    <div className="flex gap-2">
-                      {project.links.live ? (
-                        <Button
-                          asChild
-                          size="sm"
-                          className="flex-1"
-                        >
-                          <a
-                            href={project.links.live}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <ExternalLink className="h-3 w-3 mr-1" />
-                            Demo
-                          </a>
-                        </Button>
-                      ) : (
-                        <Button
-                          size="sm"
-                          className="flex-1"
-                          disabled
-                        >
-                          <ExternalLink className="h-3 w-3 mr-1" />
-                          Python
-                        </Button>
-                      )}
-                      <Button
-                        asChild
-                        variant="outline"
-                        size="sm"
-                        className="flex-1"
-                      >
-                        <a
-                          href={project.links.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                        >
-                          <Github className="h-3 w-3 mr-1" />
-                          Code
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          {/* All Projects */} 
 
           {/* Call to Action */}
           <div className="text-center mt-16">

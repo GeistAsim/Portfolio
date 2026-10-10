@@ -127,10 +127,10 @@ export default function App() {
                 <div>
                   <h4 className="mb-4">Services</h4>
                   <ul className="space-y-2 text-primary-foreground/80">
-                    <li>Web Development</li>
-                    <li>Mobile App Development</li>
-                    <li>UI/UX Design</li>
-                    <li>Technical Consulting</li>
+                    <li>Full Stack Developer</li>
+                    <li>Distributed Systems</li>
+                    <li>Database Managment System</li>
+                    <li>Cloud Architect</li>
                   </ul>
                 </div>
               </div>

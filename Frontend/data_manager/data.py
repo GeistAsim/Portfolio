@@ -1,235 +1,215 @@
-from pydantic import BaseModel, HttpUrl, EmailStr, Field
-from typing import List, Optional
-
-class SocialLinks(BaseModel):
-    github: str
-    linkedin: str
-    twitter: str
-    email: str
-
-class HeroData(BaseModel):
-    name: str
-    role: str
-    bio: str
-    resume_link: str
-    socials: SocialLinks
-
-class Highlight(BaseModel):
-    title: str
-    description: str
-    icon_name: str
-
-class AboutData(BaseModel):
-    title: str
-    description: str
-    journey_paragraphs: List[str]
-    years_experience: str
-    projects_completed: str
-    technologies_mastered: str
-    highlights: List[Highlight]
-
-class Skill(BaseModel):
-    name: str
-    level: int
-    color: str
-
-class SkillCategory(BaseModel):
-    title: str
-    icon_name: str
-    skills: List[Skill]
-
-class SkillsData(BaseModel):
-    categories: List[SkillCategory]
-    key_strengths: List[Highlight]
-    currently_learning: List[str]
-
-class ProjectLinks(BaseModel):
-    live: Optional[str] = None
-    github: str
-
-class Project(BaseModel):
-    id: int
-    title: str
-    description: str
-    image: str
-    category: str
-    technologies: List[str]
-    features: List[str]
-    links: ProjectLinks
-    status: str
-    featured: bool
-
-class ExperienceItem(BaseModel):
-    title: str
-    company: str
-    location: str
-    period: str
-    type: str
-    description: str
-    achievements: List[str]
-    technologies: List[str]
-
-class EducationItem(BaseModel):
-    degree: str
-    school: str
-    location: str
-    period: str
-    description: str
-    relevant: List[str]
-
-class ExperienceData(BaseModel):
-    work: List[ExperienceItem]
-    education: List[EducationItem]
-    certifications: List[str]
-
-class ContactInfo(BaseModel):
-    email: str
-    phone: str
-    location: str
-
-class PortfolioData(BaseModel):
-    hero: HeroData
-    about: AboutData
-    skills: SkillsData
-    projects: List[Project]
-    experience: ExperienceData
-    contact: ContactInfo
-
-# ==========================================
-# Data Instantiation
-# ==========================================
+from schema import PortfolioData, HeroData, AboutData, SkillsData, SkillCategory, SocialLinks, Highlight, Project, ProjectLinks, Skill, ExperienceData, ExperienceItem, EducationItem, ContactInfo
 
 portfolio_data = PortfolioData(
     hero=HeroData(
-        name="Asim Saifi",
+        name="Mohammad Asim Saifi",
         role="Software Developer",
-        bio="Passionate about creating innovative web applications and solving complex problems with clean, efficient code. Specializing in React, Node.js, and modern web technologies.",
-        resume_link="https://drive.google.com/uc?export=download&id=1crrOHNxQ95VJ9fNAL4X45xM8kiiXF2zw",
+        bio=(
+            "3rd-year BCA student at Manipal University Jaipur (9.03 CGPA).\n"
+            "I build backend APIs with Python/FastAPI and full-stack apps with React and MongoDB, and I'm looking for an internship or Job."
+        ),
+        resume_link="https://drive.google.com/uc?export=download&id=18HP_aJj_1YjNANSfRy7fX2Nz6M50jyYp",  # TODO: replace with actual resume PDF link if available
         socials=SocialLinks(
-            github="https://github.com/dag12y",
-            linkedin="https://www.linkedin.com/in/dagm-yibabe-46b85b353/",
-            twitter="https://x.com/Dagm0852389280?t=I0AFervOaxY1izTAy-3P_A&s=09",
-            email="dagimyibabe19@gmail.com"
+            github="https://github.com/GeistAsim/",
+            linkedin="http://www.linkedin.com/in/asim-saifi",
+            twitter="https://x.com/GeistAsim",
+            email="geistasim@gmail.com"
         )
     ),
     about=AboutData(
         title="About Me",
-        description="I'm a passionate software developer and electrical engineering student with a strong track record of building innovative web applications and systems that solve real-world problems.",
+        description=(
+            "I am a BCA student at Manipal University Jaipur. I build backend APIs with "
+            "Python and FastAPI, and full-stack web applications with React and SQL."
+        ),
         journey_paragraphs=[
-            "My journey into software development began during my early studies, where I discovered my passion for coding and creating solutions that make an impact. Since then, I've worked on a variety of projects, including a hospital management system and a modern attendance tracking app, leading teams and delivering results that simplify complex processes.",
-            "Over the years, I've earned recognition for my academic excellence, including being one of the top students in my country and contributing to my community through volunteer work and ICT initiatives. I'm driven by continuous learning and staying ahead with the latest technologies and best practices in both software and hardware domains. I believe in continuous learning and staying up-to-date with the latest technologies and best practices.",
-            "When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the developer community through blog posts and mentoring."
+            "I am in my 3rd year of BCA at Manipal University Jaipur. My current CGPA is 9.03. "
+            "I have studied Data Structures, Database Management Systems, Python Programming, "
+            "Web Development, and Backend Development.",
+
+            "I built E-ShopMine, an account management system for a shop owner to store customer "
+            "data, track transactions, government charges, service charges, dues, and service "
+            "status. It is in active development and is being used by a CSE Center.",
+
+            "I also built a Clinic Management Web Application with a FastAPI backend, MongoDB "
+            "database, and React frontend. It has patient-facing pages for appointment booking "
+            "and doctor info, plus an admin dashboard to view today's appointments, manage "
+            "doctors, update services, and track patient counts. I implemented JWT "
+            "authentication to protect admin routes.",
+
+            "I learned FastAPI, React, and MongoDB outside my university coursework. I am "
+            "currently exploring machine learning with TensorFlow and PyTorch, open-source "
+            "contribution, and competitive coding."
         ],
-        years_experience="3+",
-        projects_completed="10+",
+        years_experience="Fresher",
+        projects_completed="2",
         technologies_mastered="15+",
         highlights=[
-            Highlight(title="Clean Code", description="Writing maintainable, scalable, and well-documented code that stands the test of time.", icon_name="Code"),
-            Highlight(title="Team Player", description="Collaborative approach to development with strong communication and leadership skills.", icon_name="Users"),
-            Highlight(title="Problem Solver", description="Creative thinking and analytical skills to tackle complex technical challenges.", icon_name="Lightbulb"),
-            Highlight(title="Results Driven", description="Focused on delivering high-quality solutions that meet business objectives.", icon_name="Target")
+            Highlight(
+                title="Python & FastAPI",
+                description="I build REST APIs with Python and FastAPI.",
+                icon_name="Code"
+            ),
+            Highlight(
+                title="JWT Authentication",
+                description="I have implemented JWT-based authentication and authorization in backend projects.",
+                icon_name="Shield"
+            ),
+            Highlight(
+                title="React Frontends",
+                description="I build React frontends with Tailwind CSS for full-stack applications.",
+                icon_name="Layout"
+            ),
+            Highlight(
+                title="MongoDB & SQL",
+                description="I use MongoDB, MySQL, and MariaDB for data storage.",
+                icon_name="Database"
+            )
         ]
     ),
     skills=SkillsData(
         categories=[
             SkillCategory(
-                title="Frontend Development",
+                title="Languages",
+                icon_name="Code",
+                skills=[
+                    Skill(name="Python", level=95, color="bg-yellow-500"),
+                    Skill(name="JavaScript (ES6+)", level=80, color="bg-yellow-400"),
+                    Skill(name="SQL", level=85, color="bg-blue-500")
+                ]
+            ),
+            SkillCategory(
+                title="Frameworks & Libraries",
                 icon_name="Globe",
                 skills=[
-                    Skill(name="React", level=95, color="bg-blue-500"),
-                    Skill(name="TypeScript", level=90, color="bg-blue-600"),
-                    Skill(name="Next.js", level=80, color="bg-gray-800"),
-                    Skill(name="Vue.js", level=40, color="bg-green-500"),
-                    Skill(name="HTML/CSS", level=95, color="bg-orange-500"),
-                    Skill(name="Tailwind CSS", level=90, color="bg-teal-500")
+                    Skill(name="FastAPI", level=85, color="bg-green-600"),
+                    Skill(name="React.js", level=80, color="bg-blue-500"),
+                    Skill(name="Tailwind CSS", level=75, color="bg-teal-500")
                 ]
             ),
             SkillCategory(
-                title="Backend Development",
-                icon_name="Server",
-                skills=[
-                    Skill(name="Node.js", level=90, color="bg-green-600"),
-                    Skill(name="Express.js", level=85, color="bg-gray-700"),
-                    Skill(name="Python", level=80, color="bg-yellow-500"),
-                    Skill(name="REST APIs", level=90, color="bg-purple-500"),
-                    Skill(name="GraphQL", level=70, color="bg-pink-500")
-                ]
-            ),
-            SkillCategory(
-                title="Database & Storage",
+                title="Databases",
                 icon_name="Database",
                 skills=[
-                    Skill(name="PostgreSQL", level=85, color="bg-blue-700"),
-                    Skill(name="MongoDB", level=80, color="bg-green-700"),
-                    Skill(name="Firebase", level=40, color="bg-orange-600"),
-                    Skill(name="MySQL", level=75, color="bg-blue-800")
+                    Skill(name="MySQL", level=80, color="bg-blue-700"),
+                    Skill(name="MariaDB", level=70, color="bg-blue-800"),
+                    Skill(name="MongoDB", level=75, color="bg-green-700")
+                ]
+            ),
+            SkillCategory(
+                title="API & Integration",
+                icon_name="Server",
+                skills=[
+                    Skill(name="RESTful API Development", level=85, color="bg-purple-500"),  # TODO: set level
+                    Skill(name="Authentication (JWT) & Authorization", level=80, color="bg-pink-500"),  # TODO: set level
+                    Skill(name="Request Library", level=75, color="bg-indigo-500")  # TODO: set level
                 ]
             ),
             SkillCategory(
                 title="Tools & Others",
-                icon_name="Code",
+                icon_name="Wrench",
                 skills=[
-                    Skill(name="Git", level=95, color="bg-orange-700"),
-                    Skill(name="Vite", level=85, color="bg-blue-400"),
-                    Skill(name="Figma", level=75, color="bg-purple-400"),
-                    Skill(name="Canvas", level=60, color="bg-green-500")
+                    Skill(name="Git & GitHub", level=80, color="bg-orange-700"),
+                    Skill(name="VS Code", level=90, color="bg-blue-400"),
+                    Skill(name="CLI", level=70, color="bg-gray-700"),
+                    Skill(name="Docker", level=50, color="bg-blue-600"),
+                    Skill(name="Linux", level=60, color="bg-gray-800"),
+                    Skill(name="HTML", level=85, color="bg-orange-500"),
+                    Skill(name="CSS", level=80, color="bg-blue-500"),
+                    Skill(name="Version Control System", level=80, color="bg-orange-600"),
                 ]
             )
         ],
         key_strengths=[
-            Highlight(title="Responsive Design", description="Creating beautiful, mobile-first interfaces that work seamlessly across all devices.", icon_name="Layout"),
-            Highlight(title="Security First", description="Implementing robust security measures and best practices in every application.", icon_name="Shield"),
-            Highlight(title="Version Control", description="Expert in Git workflows, branching strategies, and collaborative development.", icon_name="GitBranch"),
-            Highlight(title="UI/UX Focus", description="Strong eye for design with experience in creating intuitive user experiences.", icon_name="Palette")
+            Highlight(
+                title="Python & FastAPI",
+                description="I build backend APIs with Python and FastAPI.",
+                icon_name="Code"
+            ),
+            Highlight(
+                title="REST APIs",
+                description="I design and build RESTful APIs.",
+                icon_name="Server"
+            ),
+            Highlight(
+                title="JWT Authentication",
+                description="I implement JWT-based authentication and authorization.",
+                icon_name="Shield"
+            ),
+            Highlight(
+                title="Full-Stack Apps",
+                description="I build full-stack applications with FastAPI, React, and SQL.",
+                icon_name="Layers"
+            )
         ],
-        currently_learning=["Machine Learning", "Rust", "Cloud", "Python", "AI/ML Integration"]
+        currently_learning=[
+            "Machine Learning",
+            "TensorFlow",
+            "PyTorch",
+            "Open Source Contribution",
+            "Competitive Coding"
+        ]
     ),
     projects=[
         Project(
             id=1,
-            title="Letter Hunt",
-            description="A fun and interactive word guessing game built with modern web technologies. Players guess letters to uncover hidden words within a limited number of attempts.",
-            image="https://i.postimg.cc/7LYmysFC/Screenshot-2025-07-17-212657.png",
-            category="Web Game",
-            technologies=["HTML", "CSS", "JavaScript", "Vite", "React"],
-            features=["Interactive word guessing gameplay", "Responsive design for mobile and desktop", "Clean and modern UI", "Dynamic scoring system", "Fast performance with Vite build tool"],
-            links=ProjectLinks(live="https://letter-hunt.vercel.app/", github="https://github.com/dag12y/Letter-Hunt"),
-            status="Live",
+            title="E-ShopMine (Account Management System)",
+            description=(
+                "A backend account management system for shop owners to store customer data, "
+                "track transactions, government charges, service charges, due payments, and "
+                "service status. Currently in active development and used by a CSE Center."
+            ),
+            image="https://www.yardicorom.com/wp-content/uploads/sites/73/2024/03/2299807799.jpg",
+            category="Backend / Account Management",
+            technologies=[
+                "Python",
+                "FastAPI",
+                "JWT Authentication",
+                "MongoDB",
+                "REST API"
+            ],
+            features=[
+                "Secure authentication system with JWT",
+                "Store customer name, contact number, service used, and requested service",
+                "Finance section tracking government charges, service charges, total amount, and dues",
+                "Application ID field to track customer service status",
+                "Shop customer data storage for future use"
+            ],
+            links=ProjectLinks(
+                live="https://eshopmine.netlify.app/",
+                github="https://github.com/GeistAsim/E-Shopmine"
+            ),
+            status="Active Development & In Use",
             featured=True
         ),
         Project(
             id=2,
-            title="Tenzies",
-            description="A fast-paced dice game where players roll to match all dice to the same number. Built with React for a smooth user experience and interactive gameplay.",
-            image="https://i.postimg.cc/YCxbZKsK/Screenshot-2025-07-17-212026.png",
-            category="Web Game",
-            technologies=["React", "JavaScript", "CSS", "Vite"],
-            features=["Dice rolling mechanic", "Game state persistence", "Winning condition detection", "Responsive and clean UI", "Fast performance with Vite build tool"],
-            links=ProjectLinks(live="https://tenzies-dagm.vercel.app/", github="https://github.com/dag12y/Tenzies"),
-            status="Live",
-            featured=False
-        ),
-        Project(
-            id=3,
-            title="Chef-AI",
-            description="An AI-powered recipe suggestion app that generates personalized cooking ideas based on available ingredients. Built with React and powered by modern AI APIs.",
-            image="https://i.postimg.cc/L6xJbx3Q/image.png",
-            category="Web App",
-            technologies=["React", "JavaScript", "CSS", "AI APIs", "Vite"],
-            features=["AI-driven recipe generation", "Ingredient-based search", "User-friendly interface", "Responsive design", "Fast loading with Vite"],
-            links=ProjectLinks(live="https://chef-ai-two.vercel.app/", github="https://github.com/dag12y/Chef-AI"),
-            status="Live",
-            featured=True
-        ),
-        Project(
-            id=4,
-            title="Amharic-Tigrigna Analyser",
-            description="A linguistic analysis tool that processes Amharic and Tigrigna texts for morphological and syntactic insights. Designed to support language researchers and learners.",
-            image="https://i.postimg.cc/PxzDrZBC/Screenshot-2025-07-17-220555.png",
-            category="Language Tool",
-            technologies=["Python", "Natural Language Processing", "Machine Learning", "Flask", "JavaScript"],
-            features=["Morphological analysis", "Syntactic parsing", "Text tokenization", "Frequency distribution analysis", "User-friendly interface"],
-            links=ProjectLinks(live=None, github="https://github.com/dag12y/amharic-tigrigna-analyser"),
+            title="Clinic Management Web Application",
+            description=(
+                "A dual-interface full-stack application for a clinic to manage patient "
+                "appointments and administrative tasks."
+            ),
+            image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhzdXMDSFCpbtylgBBjCMo5K2GHQHe6rbvTxe_NcqwYA&s=10",
+            category="Full-Stack Web App",
+            technologies=[
+                "Python",
+                "FastAPI",
+                "React.js",
+                "MongoDB",
+                "REST API"
+            ],
+            features=[
+                "Patient-facing pages for appointment booking and doctor info",
+                "Separate admin dashboard",
+                "View today's appointments",
+                "Manage active doctors and update services",
+                "Track patient counts with real-time backend data",
+                "Self-implemented authentication layer using React hooks to protect admin routes and verify sessions on reload"
+            ],
+            links=ProjectLinks(
+                live=None,
+                github="https://github.com/GeistAsim/Family-Health-Care"  # TODO: add project GitHub URL
+            ),
             status="Completed",
             featured=True
         )
@@ -237,111 +217,56 @@ portfolio_data = PortfolioData(
     experience=ExperienceData(
         work=[
             ExperienceItem(
-                title="Ambassador Team Leader",
-                company="SkillBridge Institute of Technology",
-                location="Remote",
-                period="2025 - Present",
-                type="Volunteer Leadership",
-                description="Leading a team of ambassadors to promote technology learning initiatives, organize workshops, and mentor students in coding and problem-solving.",
+                title="Self-Taught Developer",
+                company="Independent Learning",
+                location="Jaipur, India",
+                period="Present",
+                type="Self-Learning",
+                description=(
+                    "I learned FastAPI, React, and MongoDB outside university coursework "
+                    "and used them to build real applications."
+                ),
                 achievements=[
-                    "Built a vibrant community of learners and developers",
-                    "Organized coding sessions and technology awareness events",
-                    "Mentored peers in Data Structures & Algorithms and web development"
+                    "Built E-ShopMine, an account management system currently used by a CSE Center",
+                    "Built a Clinic Management Web Application with FastAPI, React, and MongoDB",
+                    "Implemented secure JWT authentication and REST APIs",
+                    "Maintained a 9.03 CGPA while building projects"
                 ],
-                technologies=["Leadership", "Team Management", "Public Speaking", "Technical Mentorship"]
-            ),
-            ExperienceItem(
-                title="Hospital Management System Developer (Collaborative Project)",
-                company="Independent Collaboration",
-                location="Debre Berhan, Ethiopia",
-                period="2024",
-                type="Project-Based",
-                description="Worked with a team to design and develop a hospital management system using MS Access. Built relational databases and user-friendly forms to improve hospital workflows.",
-                achievements=[
-                    "Designed and implemented a relational database for patient, staff, and ambulance records",
-                    "Created intuitive forms for patient registration, employee management, and blood donation tracking",
-                    "Reduced hospital registration time significantly by streamlining data entry and retrieval"
-                ],
-                technologies=["MS Access", "VBA (Visual Basic for Applications)", "Database Design", "UI Forms"]
-            ),
-            ExperienceItem(
-                title="Independent Software Developer",
-                company="Self-Learning & Freelance Projects",
-                location="Debre Berhan, Ethiopia",
-                period="2020 - Present",
-                type="Independent",
-                description="Built multiple personal and collaborative software projects while self-learning full-stack web development and modern programming practices.",
-                achievements=[
-                    "Developed a modern Chef AI system with real-time analytics and a user-friendly dashboard",
-                    "Designed and deployed responsive portfolio websites and practical business applications for local users",
-                    "Implemented version control and automated deployment workflows using Git, Vercel, and Netlify"
-                ],
-                technologies=["JavaScript", "React", "Node.js", "MongoDB", "Git & GitHub"]
+                technologies=[
+                    "Python",
+                    "FastAPI",
+                    "React.js",
+                    "MongoDB",
+                    "JWT",
+                    "REST API",
+                    "Git & GitHub"
+                ]
             )
         ],
         education=[
             EducationItem(
-                degree="Bachelor of Science in Electrical and Computer Engineering",
-                school="Addis Ababa University",
-                location="Addis Ababa, Ethiopia",
-                period="2023 - Present",
-                description="Pursuing a degree focused on the design and development of electrical systems, embedded hardware, and computer architecture.",
+                degree="Bachelor of Computer Applications (BCA)",
+                school="Manipal University Jaipur",
+                location="Jaipur, India",
+                period="3rd Year",
+                description=(
+                    "Current CGPA: 9.03 "
+                    "(Semester 1: 9.18 SGPA, Semester 2: 8.68 SGPA, Semester 3: 8.73 SGPA)."
+                ),
                 relevant=[
-                    "Digital Logic Design",
-                    "Microprocessors & Embedded Systems",
-                    "Signals & Systems",
-                    "Control Systems",
-                    "Circuit Analysis & Design"
-                ]
-            ),
-            EducationItem(
-                degree="Data Structures & Algorithms",
-                school="SkillBridge Institute of Technology",
-                location="Online",
-                period="2025 - Present",
-                description="Learning advanced data structures and algorithms to write efficient and optimized code for solving complex problems.",
-                relevant=[
-                    "Algorithm Analysis",
-                    "Sorting & Searching Algorithms",
-                    "Dynamic Programming",
-                    "Graph Algorithms"
-                ]
-            ),
-            EducationItem(
-                degree="Machine Learning & Artificial Intelligence",
-                school="AWS Educate",
-                location="Online",
-                period="2024 - Present",
-                description="Focused on mastering machine learning and AI fundamentals using AWS services and tools to build intelligent applications.",
-                relevant=[
-                    "Machine Learning Fundamentals",
-                    "Deep Learning with AWS",
-                    "Data Preprocessing & Model Training",
-                    "AI Services (AWS SageMaker, Rekognition, Lex)"
-                ]
-            ),
-            EducationItem(
-                degree="Self-Taught Software Development",
-                school="Independent Learning",
-                location="Debre Berhan, Ethiopia",
-                period="2020 - Present",
-                description="Learning and applying modern web technologies to build real-world software solutions, complementing my hardware knowledge.",
-                relevant=[
-                    "Full-Stack Web Development (React, Node.js)",
-                    "Database Systems (SQL, MongoDB)",
-                    "Version Control (Git & GitHub)",
-                    "Building and deploying web applications"
+                    "Data Structures",
+                    "Database Management Systems",
+                    "Python Programming",
+                    "Web Development",
+                    "Backend Development"
                 ]
             )
         ],
-        certifications=[
-            "Scrimba: Learn React",
-            "Udacity Nanodegree: Programming Fundamentals"
-        ]
+        certifications=[]
     ),
     contact=ContactInfo(
-        email="dagimyibabe19@gmail.com",
-        phone="+251-97-913-5593",
-        location="Debre Berhan, Ethiopia"
+        email="geistasim@gmail.com",
+        phone="+91",
+        location="Jaipur, India"
     )
 )
