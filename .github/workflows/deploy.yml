@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ master ] # change to master if your branch is master
+    branches: [ main ]
   workflow_dispatch:
 
 permissions:
@@ -12,7 +12,7 @@ permissions:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04 # Pin to a specific version to avoid the Ubuntu 26 migration
 
     defaults:
       run:
@@ -20,18 +20,17 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7 # Updated from v4
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7 # Updated from v4
         with:
-          node-version: 20
+          node-version: 24 # Explicitly use Node.js 24
           cache: 'npm'
           cache-dependency-path: Frontend/package-lock.json
 
       - name: Install dependencies
         run: npm ci
-        # If you don't have package-lock.json, use: npm install
 
       - name: Build project
         run: npm run build
@@ -40,7 +39,7 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v3 # You may consider v4 for Node 24 support
         with:
           path: Frontend/dist
 
