@@ -5,7 +5,7 @@ portfolio_data = PortfolioData(
         name="Mohammad Asim Saifi",
         role="Software Developer",
         bio=(
-            "3rd-year BCA student at Manipal University Jaipur (9.03 CGPA).\n"
+            "Final-year BCA student at Manipal University Jaipur (9.03 CGPA).\n"
             "I build backend APIs with Python/FastAPI and full-stack apps with React and MongoDB, and I'm looking for an internship or Job."
         ),
         resume_link="https://drive.google.com/uc?export=download&id=18HP_aJj_1YjNANSfRy7fX2Nz6M50jyYp",  # TODO: replace with actual resume PDF link if available
@@ -23,7 +23,7 @@ portfolio_data = PortfolioData(
             "Python and FastAPI, and full-stack web applications with React and SQL."
         ),
         journey_paragraphs=[
-            "I am in my 3rd year of BCA at Manipal University Jaipur. My current CGPA is 9.03. "
+            "I am in my final year of BCA at Manipal University Jaipur. My current CGPA is 9.03. "
             "I have studied Data Structures, Database Management Systems, Python Programming, "
             "Web Development, and Backend Development.",
 
@@ -248,7 +248,7 @@ portfolio_data = PortfolioData(
                 degree="Bachelor of Computer Applications (BCA)",
                 school="Manipal University Jaipur",
                 location="Jaipur, India",
-                period="3rd Year",
+                period="Final Year",
                 description=(
                     "Current CGPA: 9.03 "
                     "(Semester 1: 9.18 SGPA, Semester 2: 8.68 SGPA, Semester 3: 8.73 SGPA)."

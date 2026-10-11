@@ -2,7 +2,7 @@
   "hero": {
     "name": "Mohammad Asim Saifi",
     "role": "Software Developer",
-    "bio": "3rd-year BCA student at Manipal University Jaipur (9.03 CGPA).\nI build backend APIs with Python/FastAPI and full-stack apps with React and MongoDB, and I'm looking for an internship or Job.",
+    "bio": "Final-year BCA student at Manipal University Jaipur (9.03 CGPA).\nI build backend APIs with Python/FastAPI and full-stack apps with React and MongoDB, and I'm looking for an internship or Job.",
     "resume_link": "https://drive.google.com/uc?export=download&id=18HP_aJj_1YjNANSfRy7fX2Nz6M50jyYp",
     "socials": {
       "github": "https://github.com/GeistAsim/",
@@ -15,7 +15,7 @@
     "title": "About Me",
     "description": "I am a BCA student at Manipal University Jaipur. I build backend APIs with Python and FastAPI, and full-stack web applications with React and SQL.",
     "journey_paragraphs": [
-      "I am in my 3rd year of BCA at Manipal University Jaipur. My current CGPA is 9.03. I have studied Data Structures, Database Management Systems, Python Programming, Web Development, and Backend Development.",
+      "I am in my final year of BCA at Manipal University Jaipur. My current CGPA is 9.03. I have studied Data Structures, Database Management Systems, Python Programming, Web Development, and Backend Development.",
       "I built E-ShopMine, an account management system for a shop owner to store customer data, track transactions, government charges, service charges, dues, and service status. It is in active development and is being used by a CSE Center.",
       "I also built a Clinic Management Web Application with a FastAPI backend, MongoDB database, and React frontend. It has patient-facing pages for appointment booking and doctor info, plus an admin dashboard to view today's appointments, manage doctors, update services, and track patient counts. I implemented JWT authentication to protect admin routes.",
       "I learned FastAPI, React, and MongoDB outside my university coursework. I am currently exploring machine learning with TensorFlow and PyTorch, open-source contribution, and competitive coding."
@@ -297,7 +297,7 @@
         "degree": "Bachelor of Computer Applications (BCA)",
         "school": "Manipal University Jaipur",
         "location": "Jaipur, India",
-        "period": "3rd Year",
+        "period": "Final Year",
         "description": "Current CGPA: 9.03 (Semester 1: 9.18 SGPA, Semester 2: 8.68 SGPA, Semester 3: 8.73 SGPA).",
         "relevant": [
           "Data Structures",
